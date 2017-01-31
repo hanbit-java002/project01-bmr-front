@@ -1,0 +1,385 @@
+{{> header title='검색결과' cssName='search'}}
+
+<script>
+
+	/** 예약팝업창 **/
+	//인원 카운트
+	var count = 1;
+
+	function plusPeople() {
+		count++;
+		$(".count-people").text(count);
+		$(".pre-count").text(count+"명");
+	}
+	function minusPeople() {
+		if(count == 1) {
+		    count = 1;
+		}
+		else {
+		    count--;
+		}
+		$(".count-people").text(count);
+		$(".pre-count").text(count+"명");
+	}
+
+	//달력 토글, 보이기, 숨기기
+	function toggleCalendar(event) {
+		event.stopPropagation();
+		$(".calendar-box").toggle();
+	}
+	function showCalendar(event) {
+		event.stopPropagation();
+		$(".calendar-box").show();
+	}
+	function hideCalendar() {
+		$(".calendar-box").hide();
+	}
+
+	//예약 시간 토글, 숨기기
+	function toggleTimeBox(event) {
+		event.stopPropagation();
+		$(".time-box").toggle();
+	}
+	function hideTimeBox() {
+		$(".time-box").hide();
+	}
+
+	//요청사항
+	function countDemandText() {
+		var d_count = $(".bk-demand").val().length;
+		$(".count-text").text("(" + d_count + "/30자)");
+
+	}
+
+</script>
+
+
+<div id="banner-wrap">
+	<section id="map"> </section>
+</div>
+
+
+<div class="heart-click">매장을 찜하셨습니다.</div>
+
+
+<div id="popup-booking" onclick="hideCalendar(), hideTimeBox()">
+	<div class="popup-box">
+		<div class="bk-store">
+			<div class="bt-store-name">스터번</div>
+			<div class="bt-store-category">역삼동/선릉역/ 양식</div>
+			<i class="fa fa-times"></i>
+		</div>
+
+		<div class="bk-info">
+			<div class="bk-input-box peo">
+				<i class="icon-users" style="background-image: url(../img/icon.users.JPG)"></i>
+				<p class="p-peo">인원</p>
+
+				<div class="count-box">
+					<i class="fa fa-minus" onclick="minusPeople()"></i>
+					<i class="count-people">1</i>
+					<i class="fa fa-plus" onclick="plusPeople()"></i>
+				</div>
+			</div>
+
+			<div class="bk-input-box" onclick="toggleCalendar(event)">
+				<i class="fa fa-calendar"></i>
+				<p>날짜</p>
+				<div class="bk-date"> </div>
+				<i class="fa fa-angle-down"></i>
+			</div>
+			<div class="calendar-box" onclick="showCalendar(event)">
+				<table class="box-table" width="175px" cellspacing="0" cellpadding="0">
+					<tr>
+						<i class="cal-left-arrow"></i>
+						<i class="cal-right-arrow"></i>
+						<td style="text-align: center">
+
+						</td>
+					</tr>
+				</table>
+			</div>
+
+			<div class="bk-input-box" onclick="toggleTimeBox(event)">
+				<i class="fa fa-clock-o"></i>
+				<p>시간</p>
+				<div class="bk-time">오후 12:00</div>
+				<i class="fa fa-angle-down"></i>
+			</div>
+			<div class="time-box" onclick="hideTimeBox()">
+				<ul>
+
+				</ul>
+			</div>
+		</div>
+		<div class="bk-preview">
+			<span class="pre-date"> </span>
+			<span class="pre-time">오후 5:30</span>
+			<span class="pre-count">1명</span>
+		</div>
+
+		<div class="user-info">
+			<div class="user-input-box">
+				<i class="icon-user" style="background-image: url(../img/icon.user.JPG)"></i>
+				<input class="ip-name" placeholder="성함을 입력해주세요." style="border: 0; outline:0">
+			</div>
+			<div class="user-input-box">
+				<i class="fa fa-phone"></i>
+				<input class="ip-phone" placeholder="전화번호 입력해주세요." style="border: 0; outline:0">
+			</div>
+			<button class="user-phone-ok" style="border: 0; outline:0">번호 인증하기</button>
+
+			<input class="ip-num" placeholder="인증번호" style="outline:0">
+			<button class="user-num-ok" style="border: 0; outline:0">확인</button>
+
+			<p>인증번호가 도착하지 않으셨나요?</p>
+			<a>재전송</a>
+		</div>
+
+		<div class="demand-box">
+			<input class="bk-demand" type="text" maxlength="30" onkeydown="countDemandText()" style="border:0; outline: 0" placeholder="요청사항을 적어주세요.">
+			<p class="count-text">(0/30자)</p>
+		</div>
+
+		<p class="notice">
+			*21시 이후의 예약 건은 포잉팀이 다음날 오전 확인하여 전달드립니다.<br>
+			*예약 취소는 예약 시간 30분 전까지만 가능합니다.<br>
+			*No-Show(노쇼:예약을 하고 나타나지 않은 행위)는 외식업계를 아프게합니다.<br>
+		</p>
+	</div>
+	<button class="booking-confirm-btn" style="border:0; outline:0">예약 접수</button>
+</div>
+
+
+
+<div id="po-contents">
+
+	<section class="sec01">
+		<div class="result">
+
+		</div>
+
+		<div class="section-body">
+			<div class="section-contents section01">
+				<ul class="sc-order">
+					<li>에디터 추천순</li>
+					<li>별점순</li>
+					<li>예약순</li>
+					<li>조회순</li>
+				</ul>
+
+				<ul class="sc-list">
+				</ul>
+
+				<ul class="sc-page">
+					<li>≪</li>
+					<li>＜</li>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+					<li>6</li>
+					<li>7</li>
+					<li>8</li>
+					<li>9</li>
+					<li>10</li>
+					<li>＞</li>
+					<li>≫<li>
+				</ul>
+
+				<div class="sc-side">
+					<div class="filters">
+						<div class="sc-filter-content">
+							<div class="ft-title">필터로 더 자세하게 검색</div>
+							<div class="ft-region"> <i class="fa fa-map-marker"></i> &nbsp;&nbsp;지역선택 </div>
+							<div class="ft-food"> <i class="fa fa-cutlery"></i> &nbsp;음식 선택 </div>
+
+							<div class="ft-budget">
+								<i class="fa fa-credit-card"></i> <p>예산(2인기준)</p>
+								<section class="budget-choice-box">
+									<p>예산(2인 기준)</p>
+									<i class="fa fa-times"></i>
+
+									<ul class="select-budget">
+										<li>
+											<input class="bud-choice" type="checkbox" id="bu0">
+											<i class="check-img"></i>
+											<label for="bu0" class="bu-label">5만원미만</label>
+										</li>
+										<li>
+											<input class="bud-choice" type="checkbox" id="bu1">
+											<i class="check-img"></i>
+											<label for="bu1" class="bu-label">5만원~10만원</label>
+										</li>
+										<li>
+											<input class="bud-choice" type="checkbox" id="bu2">
+											<i class="check-img"></i>
+											<label for="bu2" class="bu-label">10만원~16만원</label>
+										</li>
+										<li>
+											<input class="bud-choice" type="checkbox" id="bu3">
+											<i class="check-img"></i>
+											<label for="bu3" class="bu-label">16만원이상</label>
+										</li>
+									</ul>
+									<button class="budget-confirm-btn" style="border:0; outline:0">확인</button>
+								</section>
+							</div>
+
+							<div class="ft-choice">
+								<i class="fa fa-coffee"></i> <p>상황별 선택</p>
+								<ul class="si-choice-list">
+								</ul>
+
+								<div class="situation-choice-box">
+									<p>상황별 선택</p>
+									<i class="fa fa-times"></i>
+
+									<ul class="select-situation">
+										<label>
+											<li>
+												<input class="si-choice" type="checkbox" id="늦은저녁에도영업을하는">
+												<i class="check-img"></i>
+												<p>늦은저녁에도영업을하는</p>
+											</li>
+										</label>
+										<label>
+										<li>
+											<input class="si-choice" type="checkbox" id="단체회식모임이가능한">
+											<i class="check-img"></i>
+											<p>단체회식모임이가능한</p>
+										</li>
+										</label>
+										<label>
+										<li>
+											<input class="si-choice" type="checkbox" id="룸이준비되어있는">
+											<i class="check-img"></i>
+											<p>룸이준비되어있는</p>
+										</li>
+										</label>
+										<label>
+										<li>
+											<input class="si-choice" type="checkbox" id="런치메뉴가있는">
+											<i class="check-img"></i>
+											<p>런치메뉴가있는</p>
+										</li>
+										</label>
+										<label>
+										<li>
+											<input class="si-choice" type="checkbox" id="브런치메뉴가있는">
+											<i class="check-img"></i>
+											<p>브런치메뉴가있는</p>
+										</li>
+										</label>
+										<label>
+										<li>
+											<input class="si-choice" type="checkbox" id="야외테라스자리가있는">
+											<i class="check-img"></i>
+											<p>야외테라스자리가있는</p>
+										</li>
+										</label>
+										<label>
+										<li>
+											<input class="si-choice" type="checkbox" id="데이트하기좋은">
+											<i class="check-img"></i>
+											<p>데이트하기좋은</p>
+										</li>
+										</label>
+										<label>
+										<li>
+											<input class="si-choice" type="checkbox" id="비지니스미팅에어울리는">
+											<i class="check-img"></i>
+											<p>비지니스미팅에어울리는</p>
+										</li>
+										</label>
+										<label>
+										<li>
+											<input class="si-choice" type="checkbox" id="코르키지가가능한">
+											<i class="check-img"></i>
+											<p>코르키지가가능한</p>
+										</li>
+										</label>
+										<label>
+										<li>
+											<input class="si-choice" type="checkbox" id="전문소믈리에가있는">
+											<i class="check-img"></i>
+											<p>전문소믈리에가있는</p>
+										</li>
+										</label>
+										<label>
+										<li>
+											<input class="si-choice" type="checkbox" id="베이비시트가준비되어있는">
+											<i class="check-img"></i>
+											<p>베이비시트가준비되어있는</p>
+										</li>
+										</label>
+										<label>
+											<li>
+												<input class="si-choice" type="checkbox" id="24시간영업을하는">
+												<i class="check-img"></i>
+												<p>24시간영업을하는</p>
+											</li>
+										</label>
+									</ul>
+									<button class="situation-confirm-btn" style="border:0; outline:0">확인</button>
+								</div>
+							</div>
+							<div class="ft-parking">
+								<input class="parking" type="checkbox" id="pk01">
+								<label for="pk01" class="pk-label" style="font-weight:normal"> <i class="fa fa-car"></i>주차 가능</label>
+								<i class="check-img"></i>
+							</div>
+						</div>
+
+						<button class="sc-filter-btn" style="border:0; outline:0">레스토랑 검색</button>
+					</div>
+
+					<div class="recommend-ticket">
+						<div class="sc-ticket-content">
+							<div class="ft-title">이 달의 추천 티켓</div>
+							<div>
+
+								<ul class="tk-box">
+									<i style="background-image: url(../img/side_ticket0.jpg)"></i>
+									<div class="tk-box-text">
+										<li class="tk-store-name">우미학</li>
+										<li class="tk-desc">숙성안심 스페셜 세트 28% OFF</li>
+									</div>
+								</ul>
+							</div>
+							<div>
+								<ul class="tk-box">
+									<i style="background-image: url(../img/side_ticket1.jpg)"></i>
+									<div class="tk-box-text">
+										<li class="tk-store-name">청미심</li>
+										<li class="tk-desc">벽제갈비 테이스팅 메뉴</li>
+									</div>
+								</ul>
+							</div>
+							<div>
+								<ul class="tk-box">
+									<i style="background-image: url(../img/side_ticket2.jpg)"></i>
+									<div class="tk-box-text">
+										<li class="tk-store-name">트리아농</li>
+										<li class="tk-desc">애프터눈 티 세트 (1인)</li>
+									</div>
+								</ul>
+							</div>
+						</div>
+						<button class="sc-ticket-btn" onclick="location.href='dining_ticket.html'" style="border:0; outline:0">티켓 더보기</button>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</section>
+
+
+
+</div>
+
+
+
+{{> footer jsName='search'}}

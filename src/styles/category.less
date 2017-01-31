@@ -1,0 +1,109 @@
+@import 'lib/include.all.less';
+@import 'common.css';
+
+#banner-wrap {
+	width: 100%;
+	margin-top: @mainbar-height + @menubar-height;
+}
+#banner-img {
+	position: relative;
+	width: 100%;
+	height: 420px;
+	background-image: url("../img/sec01_food.jpg");
+	background-size: cover;
+	overflow: hidden;
+	background-position-x: 50%;
+	background-position-y: 50%;
+}
+#banner-img>.shading {
+	height: 100%;
+	background-color: rgba(0,0,0, 0.6);
+}
+.img-box-text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.img-box-text>.caption {
+	color: #fff;
+	font-size: 21px;
+	font-weight: 800;
+	text-align: center;
+ }
+.img-box-text>.img-box-divider {
+	background-color: #fff;
+	width: 45px;
+	height: 1px;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+}
+.img-box-text>.curator {
+	color: #fff;
+	font-size: 15px;
+	text-align: center;
+}
+
+
+#po-contents> section{
+	text-align: justify;
+}
+.section-title {
+	color: @domain-text-color;
+	font-size: 18px;
+	font-weight: bold;
+	margin-top: -3%;
+	margin-bottom: 4%;
+	text-align: center;
+}
+.section-contents {
+	margin-left: 19%;
+}
+
+
+
+.section-contents>ul>li {
+	display: inline-block;
+	width: 25%;
+	height: 312px;
+	margin-left: 1.2%;
+	margin-bottom: 3%;
+	cursor: pointer;
+}
+
+.section-contents .sec-img {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position-x: 50%;
+	background-position-y: 50%;
+	border-radius: 7px;
+}
+.sec-img>.shading {
+	height: 100%;
+	background-color: rgba(0,0,0, 0.3);
+	border-radius: 7px;
+}
+.sec-img:hover>.shading {
+	height: 100%;
+	background-color: rgba(0,0,0, 0.7);
+	border-radius: 7px;
+}
+
+.section-contents .img-box-text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	font-size: 17px;
+	text-align: center;
+	color: #fff;
+}
+.section-contents .img-box-text>.cap_eng {
+	margin-left: auto;
+	margin-right: auto;
+}
+.section-contents .img-box-text>.cap_kor{
+}

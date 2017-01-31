@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+	<title>{{title}}</title>
+
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<link rel="stylesheet" href="plugins/normalize/normalize.css">
+	<link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/{{cssName}}.css">
+	<script src="plugins/modernizr/modernizr-2.8.3.min.js"></script>
+</head>
+<body>
+
+<div class="po-container">
+	<header id="main-bar">
+		<div class="main-bar-contents">
+			<div class="clicked-filter-layer"> </div>
+			<div id="main-logo">
+				poing.hb
+			</div>
+
+			<div id="main-region">
+				<p class="main-select-regions">서울</p>
+				<i class="fa fa-angle-down"></i>
+
+				<ul class="main-other-regions">
+					<li class="ot-seoul" data-enable="true">서울</li>
+					<li class="ot-busan" data-enable="true">부산</li>
+					<li class="ot-incheon" data-enable="false">인천</li>
+					<li class="ot-daegu" data-enable="false">대구</li>
+					<li class="ot-daejeon" data-enable="false">대전</li>
+					<li class="ot-gwangju" data-enable="false">광주</li>
+					<li class="ot-jeju" data-enable="false">제주</li>
+				</ul>
+			</div>
+
+
+			<div id="regions-choice">
+				<p id="choice-text">지역 선택</p>
+				<i class="fa fa-angle-down mainbar"></i>
+
+				<div id="regions-choice-form">
+					<ul class="select select-regions district">
+						<li regions="region-favorite" class="selected">
+							인기지역
+							<span> > </span>
+						</li>
+						<li regions="region-seoul-gangnam">
+							서울강남
+							<span> > </span>
+						</li>
+						<li regions="region-seoul-gangbook">
+							서울강북
+							<span> > </span>
+						</li>
+						<li regions="region-all">
+							지역전체
+							<span> > </span>
+						</li>
+					</ul>
+					<div class="neighborhood">
+						<ul regions="region-favorite" class="region-details select select-multiple">
+							<label>
+								<li>
+									<input class="re-fav" type="checkbox" id="fav01">
+									<p>강남역</p>
+									<i></i>
+								</li>
+							</label>
+							<label>
+								<li>
+									<input class="re-fav" type="checkbox" id="fav02">
+									<p>가로수길</p>
+									<i></i>
+								</li>
+							</label>
+							<label>
+								<li>
+									<input class="re-fav" type="checkbox" id="fav03">
+									<p>이태원</p>
+									<i></i>
+								</li>
+							</label>
+							<label>
+								<li>
+									<input class="re-fav" type="checkbox" id="fav04">
+									<p>홍대</p>
+									<i></i>
+								</li>
+							</label>
+							<label>
+								<li>
+									<input class="re-fav" type="checkbox" id="fav05">
+									<p>압구정동</p>
+									<i></i>
+								</li>
+							</label>
+							<label>
+								<li>
+									<input class="re-fav" type="checkbox" id="fav06">
+									<p>청담동</p>
+									<i></i>
+								</li>
+							</label>
+							<label>
+								<li>
+									<input class="re-fav" type="checkbox" id="fav07">
+									<p>서래마을</p>
+									<i></i>
+								</li>
+							</label>
+							<label>
+								<li>
+									<input class="re-fav" type="checkbox" id="fav08">
+									<p>대학로</p>
+									<i></i>
+								</li>
+							</label>
+							<label>
+								<li>
+									<input class="re-fav" type="checkbox" id="fav09">
+									<p>교대/서초</p>
+									<i></i>
+								</li>
+							</label>
+							<label>
+								<li>
+									<input class="re-fav" type="checkbox" id="fav10">
+									<p>광화문</p>
+									<i></i>
+								</li>
+							</label>
+							<label>
+								<li>
+									<input class="re-fav" type="checkbox" id="fav11">
+									<p>신촌/이대</p>
+									<i></i>
+								</li>
+							</label>
+							<label>
+								<li>
+									<input class="re-fav" type="checkbox" id="fav12">
+									<p>종로</p>
+									<i></i>
+								</li>
+							</label>
+							<label>
+								<li>
+									<input class="re-fav" type="checkbox" id="fav13">
+									<i></i>
+									<p>건대</p>
+								</li>
+							</label>
+							<label>
+								<li>
+									<input class="re-fav" type="checkbox" id="fav14">
+									<p>삼청동</p>
+									<i></i>
+								</li>
+							</label>
+							<label>
+								<li>
+									<input class="re-fav" type="checkbox" id="fav15">
+									<p>한남동</p>
+									<i></i>
+								</li>
+							</label>
+						</ul>
+
+						<ul regions="region-seoul-gangnam" class="region-details select select-multiple">
+							<label>
+								<li>
+									<input class="re-gangnam" type="checkbox" id="nam01">
+									<p>가로수길</p>
+									<i></i>
+								</li>
+							</label>
+							<label>
+								<li>
+									<input class="re-gangnam" type="checkbox" id="nam02">
+									<p>강남역</p>
+									<i></i>
+								</li>
+							</label>
+							<label>
+								<li>
+									<input class="re-gangnam" type="checkbox" id="nam03">
+									<p>교대/서초</p>
+									<i></i>
+								</li>
+							</label>
+							<label>
+								<li>
+									<input class="re-gangnam" type="checkbox" id="nam04">
+									<p>논현동</p>
+									<i></i>
+								</li>
+							</label>
+							<label>
+								<li>
+									<input class="re-gangnam" type="checkbox" id="nam05">
+									<p>대치동</p>
+									<i></i>
+								</li>
+							</label>
+							<label>
+								<li>
+									<input class="re-gangnam" type="checkbox" id="nam06">
+									<p>도곡동/개포동</p>
+									<i></i>
+								</li>
+							</label>
+							<label>
+								<li>
+									<input class="re-gangnam" type="checkbox" id="nam07">
+									<p>도산공원</p>
+									<i></i>
+								</li>
+							</label>
+							<label>
+								<li>
+									<input class="re-gangnam" type="checkbox" id="nam08">
+									<p>로데오거리(압구정)</p>
+									<i></i>
+								</li>
+							</label>
+							<label>
+								<li>
+									<input class="re-gangnam" type="checkbox" id="nam09">
+									<p>목동</p>
+									<i></i>
+								</li>
+							</label>
+							<label>
+								<li>
+									<input class="re-gangnam" type="checkbox" id="nam10">
+									<p>반포동/고속터미널</p>
+									<i></i>
+								</li>
+							</label>
+						</ul>
+						<ul regions="region-seoul-gangbook" class="region-details select select-multiple">
+							<label>
+								<li>
+									<input class="re-gangbook" type="checkbox" id="buk01">
+									<p>건대</p>
+									<i></i>
+								</li>
+							</label>
+							<label>
+							<li>
+								<input class="re-gangbook" type="checkbox" id="buk02">
+								<p>경리단길</p>
+								<i></i>
+							</li>
+							</label>
+							<label>
+							<li>
+								<input class="re-gangbook" type="checkbox" id="buk03">
+								<p>광장동/구의동</p>
+								<i></i>
+							</li>
+							</label>
+							<label>
+							<li>
+								<input class="re-gangbook" type="checkbox" id="buk04">
+								<p>광화문</p>
+								<i></i>
+							</li>
+							</label>
+							<label>
+							<li>
+								<input class="re-gangbook" type="checkbox" id="buk05">
+								<p>남대문/서울역</p>
+								<i></i>
+							</li>
+							</label>
+						</ul>
+						<ul regions="region-all" class="region-details select select-multiple">
+							<label>
+								<li>
+									<input class="re-all" type="checkbox" id="all01">
+									<p>여의도</p>
+									<i></i>
+								</li>
+							</label>
+							<label>
+								<li>
+									<input class="re-all" type="checkbox" id="all02">
+									<p>역삼동/선릉역</p>
+									<i></i>
+								</li>
+							</label>
+							<label>
+								<li>
+									<input class="re-all" type="checkbox" id="all03">
+									<p>연희동/연남동</p>
+									<i></i>
+								</li>
+							</label>
+							<label>
+								<li>
+									<input class="re-all" type="checkbox" id="all04">
+									<p>영등포</p>
+									<i></i>
+								</li>
+							</label>
+							<label>
+								<li>
+									<input class="re-all" type="checkbox" id="all05">
+									<p>이태원</p>
+									<i></i>
+								</li>
+							</label>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<button class="region-confirm" style="border:0; outline:0">확인</button>
+
+
+			<div id="foods-choice">
+				<p id="choice-text">음식 종류 선택</p>
+				<i class="fa fa-angle-down mainbar"></i>
+
+				<div id="foods-choice-form">
+					<ul class="ch-foods select select-multiple">
+						<label for="fd01" class="re-label">
+							<li>
+								<input class="fd-cho" type="checkbox" id="fd01">
+								<p>한식</p>
+								<i></i>
+							</li>
+						</label>
+
+						<label>
+							<li>
+								<input class="fd-cho" type="checkbox" id="fd02">
+								<p>중식</p>
+								<i></i>
+							</li>
+						</label>
+						<label>
+							<li>
+								<input class="fd-cho" type="checkbox" id="fd03">
+								<p>일식</p>
+								<i></i>
+							</li>
+						</label>
+						<label>
+							<li>
+								<input class="fd-cho" type="checkbox" id="fd04">
+								<p>양식</p>
+								<i></i>
+							</li>
+						</label>
+						<label>
+							<li>
+								<input class="fd-cho" type="checkbox" id="fd05">
+								<p>아시아식</p>
+								<i></i>
+							</li>
+						</label>
+						<label>
+							<li>
+								<input class="fd-cho" type="checkbox" id="fd06">
+								<p>컨템퍼러리</p>
+								<i></i>
+							</li>
+						</label>
+						<label>
+							<li>
+								<input class="fd-cho" type="checkbox" id="fd07">
+								<p>술집</p>
+								<i></i>
+							</li>
+						</label>
+						<label>
+							<li>
+								<input class="fd-cho" type="checkbox" id="fd08">
+								<p>뷔페</p>
+								<i></i>
+							</li>
+						</label>
+						<label>
+							<li>
+								<input class="fd-cho" type="checkbox" id="fd09">
+								<p>카페/베이커리</p>
+								<i></i>
+							</li>
+						</label>
+						<label>
+							<li>
+								<input class="fd-cho" type="checkbox" id="fd10">
+								<p>구이</p>
+								<i></i>
+							</li>
+						</label>
+					</ul>
+				</div>
+			</div>
+			<button class="food-confirm" style="border:0; outline:0">확인</button>
+
+
+			<div id="search-main-bar">
+				<input id="input-search-text" type="text" value="">
+				<i class="fa fa-search"></i>
+
+				<div id="search-bar-form">
+					<ul>
+						<li>인기 검색어</li>
+						<li onclick="location.href='search.html'">① 광화문</li>
+						<li onclick="location.href='search.html'">② 스시 입문</li>
+						<li onclick="location.href='search.html'">③ 강남역</li>
+						<li onclick="location.href='search.html'">④ 와인바</li>
+					</ul>
+				</div>
+				</input>
+			</div>
+			<button class="search-confirm" style="border:0; outline:0">검색</button>
+
+			<div id="main-menu">
+				<ul>
+					<li>로그인</li>
+					<li>회원가입</li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="menu-bar">
+			<a class="menu-items">이벤트 </a>
+			<a class="menu-items">추천 테마</a>
+			<a class="menu-items">리뷰</a>
+			<a class="menu-items">매거진</a>
+		</div>
+	</header>

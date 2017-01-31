@@ -1,0 +1,356 @@
+@import 'lib/include.all.less';
+@import 'common.css';
+
+
+
+#main-home-bar {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 58px;
+	background-color: transparent;
+	z-index: 10;
+}
+#main-home-logo {
+	position: absolute;
+	top: 7px;
+	left: 20%;
+	margin-left: -50px;
+	color: #ffffff;
+	font-size: 30px;
+	font-weight: bold;
+	cursor: pointer;
+}
+#main-home-menu {
+	position: absolute;
+	top: 20px;
+	left: 73%;
+	font-size: 12px;
+	cursor: pointer;
+}
+#main-home-menu>ul>li {
+	display: inline-block;
+	border-left: 0;
+	color: #fff;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-right: solid 1px #fff;
+	vertical-align: middle;
+}
+#main-home-menu>ul>li:last-child {
+	border-right: 0;
+}
+
+
+#main-top {
+	height: 540px;
+	background-image: url(../img/main0.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position-x: 50%;
+	background-position-y: 100%;
+}
+#main-top-body {
+	text-align: center;
+}
+.main-text-1 {
+	color: #fff;
+	font-size: 35px;
+	padding: 150px 0px 0px 10px;
+}
+.main-text-2 {
+	color: #fff;
+	font-size: 22px;
+	padding: 7px 0px 40px 10px;
+}
+
+
+#main-search-form {
+	position: relative;
+	width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+	line-height: 40px;
+	cursor: pointer;
+}
+#main-search-region {
+	width: 100%;
+	height: 45px;
+	border: solid 3px white;
+	border-radius: 5px;
+	background-color: white;
+	font-size: 15px;
+	color: #999;
+	padding-left: 40px;
+
+}
+#main-search-form>i.fa-map-marker {
+	position: absolute;
+	top: 5px;
+	left: 13px;
+	font-size: 35px;
+	color: #999;
+}
+#main-search-form>i.fa-angle-down {
+	position: absolute;
+	top: 6px;
+	right: 12px;
+	font-size: 30px;
+	color: #999;
+}
+.search-regions {
+	display: none;
+	position: absolute;
+	top: 47px;
+	width: 100%;
+	background-color: white;
+	border-radius: 5px;
+	z-index: 10;
+
+}
+.search-regions>li {
+	padding-left: 40px;
+	font-size: 15px;
+	color: #888;
+}
+
+
+
+#po-contents>.section-home {
+	position: relative;
+	padding: 50px 20px 150px 20px;
+}
+.content-title {
+	text-align: center;
+	padding-bottom: 50px;
+}
+.content-text-1 {
+	color: @main-text-color;
+	font-size: 21px;
+	font-weight: bold;
+}
+.content-text-2 {
+	color: @main-text-color;
+	font-size: 16px;
+}
+
+.content-large-img {
+	position: relative;
+	text-align: center;
+}
+.content-small-img {
+	position: relative;
+	text-align: center;
+}
+
+.element {
+	display: inline-block;
+	top: 90px;
+	border: solid 1px #aaa;
+	text-align: center;
+	border-radius: 7px;
+	overflow: hidden;
+}
+
+@large-image-width: 476px;
+@large-image-height: 300px;
+.element.large-region {
+	width: @large-image-width;
+	height: 300px;
+	margin-bottom: 40px;
+	cursor: pointer;
+}
+.line {
+	width: 20px;
+}
+
+.element.large-region.first {
+	margin-right: 16px;
+}
+
+.img-seoul {
+	position: relative;
+	display: block;
+	background-image: url(../img/seoul.jpg);
+	width: @large-image-width;
+	height: @large-image-height;
+	background-size: cover;
+	background-repeat: no-repeat;
+
+}
+.element>.img-seoul>.shading {
+	height: 100%;
+	background: rgba(0,0,0, 0.3);
+}
+.element>.img-seoul>.center {
+	display: table;
+	position: absolute;
+	top: 95px;
+	left: 215px;
+	text-align: center;
+	color: #fff;
+	font-size: 16px;
+}
+
+.img-busan {
+	position: relative;
+	display: block;
+	background-image: url(../img/busan.jpg);
+	width: @large-image-width;
+	height: @large-image-height;
+	background-size: cover;
+	background-repeat: no-repeat;
+
+}
+.element>.img-busan>.shading {
+	height: 100%;
+	background: rgba(0,0,0, 0.3);
+}
+.element>.img-busan>.center {
+	display: table;
+	position: absolute;
+	top: 95px;
+	left: 215px;
+	text-align: center;
+	color: #fff;
+	font-size: 16px;
+}
+
+
+.element.small-region {
+	width: 180px;
+	margin-left: 7px;
+	margin-right: 7px;
+}
+.disable-service {
+	display: none;
+	position: absolute;
+	top: 60px;
+	left: 40px;
+	text-align: center;
+	color: #fff;
+	font-size: 18px;
+}
+@small-image-size: 180px;
+.img-incheon {
+	position: relative;
+	display: block;
+	background-image: url(../img/inceon.jpg);
+	width: @small-image-size;
+	height: @small-image-size;
+	background-size: cover;
+	background-repeat: no-repeat;
+
+}
+.element>.img-incheon>.shading {
+	height: 100%;
+	background: rgba(0,0,0, 0.7);
+}
+.element>.img-incheon>.center {
+	display: table;
+	position: absolute;
+	top: 45px;
+	left: 60px;
+	text-align: center;
+	color: #fff;
+	font-size: 16px;
+}
+
+
+.img-daegu {
+	 position: relative;
+	 display: block;
+	 background-image: url(../img/daegu.jpg);
+	 width: @small-image-size;
+	 height: @small-image-size;
+	 background-size: cover;
+	 background-repeat: no-repeat;
+
+ }
+.element>.img-daegu>.shading {
+	height: 100%;
+	background: rgba(0,0,0, 0.7);
+}
+.element>.img-daegu>.center {
+	display: table;
+	position: absolute;
+	top: 45px;
+	left: 60px;
+	text-align: center;
+	color: #fff;
+	font-size: 16px;
+}
+
+.img-daejeon {
+	position: relative;
+	display: block;
+	background-image: url(../img/daejeon.jpg);
+	width: @small-image-size;
+	height: @small-image-size;
+	background-size: cover;
+	background-repeat: no-repeat;
+
+}
+.element>.img-daejeon>.shading {
+	height: 100%;
+	background: rgba(0,0,0, 0.7);
+}
+.element>.img-daejeon>.center {
+	display: table;
+	position: absolute;
+	top: 45px;
+	left: 60px;
+	text-align: center;
+	color: #fff;
+	font-size: 16px;
+}
+
+.img-gwangju {
+	position: relative;
+	display: block;
+	background-image: url(../img/gwangju.jpg);
+	width: @small-image-size;
+	height: @small-image-size;
+	background-size: cover;
+	background-repeat: no-repeat;
+
+}
+.element>.img-gwangju>.shading {
+	height: 100%;
+	background: rgba(0,0,0, 0.7);
+}
+.element>.img-gwangju>.center {
+	display: table;
+	position: absolute;
+	top: 45px;
+	left: 60px;
+	text-align: center;
+	color: #fff;
+	font-size: 16px;
+}
+
+.img-jeju {
+	position: relative;
+	display: block;
+	background-image: url(../img/jeju.jpg);
+	width: @small-image-size;
+	height: @small-image-size;
+	background-size: cover;
+	background-repeat: no-repeat;
+
+}
+.element>.img-jeju>.shading {
+	height: 100%;
+	background: rgba(0,0,0, 0.7);
+}
+.element>.img-jeju>.center {
+	display: table;
+	position: absolute;
+	top: 45px;
+	left: 60px;
+	text-align: center;
+	color: #fff;
+	font-size: 16px;
+}

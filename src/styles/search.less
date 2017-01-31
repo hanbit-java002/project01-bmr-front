@@ -1,0 +1,1034 @@
+@import 'lib/include.all.less';
+@import 'common.css';
+
+
+#banner-wrap {
+	width: 100%;
+	margin-top: @mainbar-height + @menubar-height;
+}
+#map {
+	position: relative;
+	width: 100%;
+	height: 420px;
+}
+
+#po-contents>.sec01{
+	text-align: center;
+	padding-left: 19%;
+	padding-right: 34%;
+	margin-bottom: 5%;
+}
+
+
+.sec01>.result {
+	color: gray;
+	font-size: 16px;
+	font-weight: bold;
+	margin-top: -2%;
+}
+.sec01>.result .highlight {
+	color: @main-color;
+	font-size: 17px;
+}
+
+.sec01>.section-body {
+	margin-top: -2%;
+}
+
+
+.section-contents.section01>.sc-order {
+	text-align: right;
+	margin: 5% 1.1% 1% 0px;
+	cursor: pointer;
+}
+.section-contents.section01>.sc-order>li {
+	display: inline-block;
+	color: @domain-text-color;
+	font-size: 12px;
+	font-weight: bold;
+	border-left: solid 1px @domain-text-color;
+	padding-left: 5px;
+
+}
+.section-contents.section01>.sc-order>li:hover {
+	color: @main-color;
+}
+.section-contents.section01>.sc-order>li:first-child {
+	color: @main-color;
+	border: 0px;
+}
+
+.section-contents.section01 {
+	height: 0px;
+	display: inline-block;
+}
+
+
+.section-contents.section01>.sc-list>li {
+	display: inline-block;
+}
+
+
+.section-contents.section01 .st-users {
+	color: #fff;
+	font-size: 12px;
+	text-align: right;
+	padding-top: 3%;
+	margin-right: 4%;
+}
+.section-contents.section01 .icon-heart {
+	color: #fff;
+	font-size: 29px;
+	float: right;
+	margin-right: 5%;
+	cursor: pointer;
+}
+.section-contents.section01 .icon-heart>.fa-heart {
+	color: @main-color;
+}
+.heart-click {
+	display: none;
+	position: fixed;
+	width: 18%;
+	height: 90px;
+	top: 40%;
+	left: 40%;
+	font-size: 14px;
+	text-align: center;
+	padding-top: 2%;
+	border-radius: 3px;
+	color: #fff;
+	background-color: rgba(0,0,0, 0.8);
+	z-index: 31;
+}
+
+.section-contents.section01 .st-ticket {
+	position: absolute;
+	color: #fff;
+	width: 30px;
+	font-size: 12px;
+	margin-top: 10.5%;
+	margin-left: 0.7%;
+	border: solid 1px @main-color;
+	background-color: @main-color;
+	border-radius: 3px;
+	padding: 1px 2px 0px 2px;
+}
+.section-contents.section01 .img-box-text{
+	position: relative;
+	top: 73%;
+	margin-left: 4%;
+	text-align: left;
+	color: #fff;
+}
+.section-contents.section01 .img-box-text>.st-name {
+	font-size: 16px;
+}
+.section-contents.section01 .img-box-text>.st-category {
+	font-size: 13px;
+}
+
+.section-contents.section01 .store-all-box {
+	display: inline-block;
+	width: 31.4%;
+	height: 405px;
+	overflow: hidden;
+	margin-left: 1.1%;
+	margin-bottom: 3%;
+}
+.section-contents.section01 .sec-img {
+	height: 263px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+.sec-img>.shading {
+	height: 100%;
+	background-color: rgba(0,0,0, 0.2);
+}
+.sec-img:hover>.shading {
+	height: 100%;
+	background-color: rgba(0,0,0, 0.6);
+}
+
+
+.section-contents.section01 .review-box {
+	position: relative;
+	width: 100%;
+	height: 111px;
+	border: solid 1px #e3e3e3;
+	background-color: #fff;
+}
+.section-contents.section01 .review-box>.rating {
+	display: inline-block;
+	color: @main-color;
+	float: left;
+	margin-top: 2%;
+	margin-left: 5%;
+}
+.section-contents.section01 .review-box>.rating>.stars {
+	font-size: 20px;
+	float: left;
+}
+.section-contents.section01 .review-box>.rating>.grade {
+	position: absolute;
+	top: 6%;
+	right: 4%;
+	font-size: 14px;
+	border: solid 1px;
+	border-radius: 5px;
+	padding: 1px 3px;
+}
+.section-contents.section01 .store-info {
+	text-align: left;
+	padding-top: 16%;
+	padding-left: 4%;
+	padding-right: 4%;
+}
+.section-contents.section01 .review-box>.store-info>.budget {
+	font-size: 12px;
+	font-weight: bold;
+	color: @domain-text-color;
+}
+.section-contents.section01 .review-box>.store-info>.st-info {
+	font-size: 11px;
+	padding-top: 1%;
+	color: #696969;
+	text-align: justify;
+}
+
+.section-contents.section01 .review-box>.st-etc {
+	position: absolute;
+	font-size: 10px;
+	font-weight: bold;
+	bottom: 3%;
+	margin-left: 4%;
+	cursor: pointer;
+}
+.section-contents.section01 .review-box>.st-etc>a {
+	color: @domain-text-color;
+	margin-right: 5%;
+	text-decoration: underline;
+
+}
+
+
+.section-contents.section01 .button-box {
+	display: inline-flex;
+	width: 100%;
+	height: 28px;
+	margin-top: 1.2%;
+}
+.section-contents.section01 .button-box>button {
+	width: 100%;
+	height: 100%;
+	font-size: 12px;
+	outline: none;
+	border: 0px;
+	margin: 0 2px;
+	border-radius: 3px;
+}
+.section-contents.section01 .button-box>.booking {
+	color: #fff;
+	background-color: @main-color;
+}
+.section-contents.section01 .button-box>.booking:hover {
+	background-color: #b9062f;
+}
+.section-contents.section01 .button-box>.reviewing {
+	color: @domain-text-color;
+	background-color: #fff;
+}
+.section-contents.section01 .button-box>.reviewing:hover {
+	color: #fff;
+	background-color: #999;
+}
+
+
+.section-contents.section01>.sc-page {
+	color: #969696;
+	font-size: 14px;
+	cursor: pointer;
+}
+.section-contents.section01>.sc-page>li {
+	display: inline-block;
+	padding: 0px 0.6%;
+}
+.section-contents.section01>.sc-page>li:nth-child(3){
+	font-size: 15px;
+	color: @main-color;
+	font-weight: bold;
+}
+
+
+
+
+.sc-side{
+	position: relative;
+	width: 20%;
+	float: right;
+	top: -1748px;
+	left: 31.3%;
+}
+.sc-side>.filters {
+	position: relative;
+	width: 147.9%;
+	max-height: 465px;
+	float: right;
+	text-align: justify;
+}
+.ft-title {
+	font-size: 15px;
+	font-weight: bold;
+	text-align: center;
+	color: @main-color;
+}
+
+.sc-side>.filters>.sc-filter-content {
+	height: 100%;
+	font-size: 13px;
+	color: @domain-text-color;
+	background-color: #fff;
+	border-top: solid 2px @main-color;
+	border-left: solid 1px #e3e3e3;
+	border-right: solid 1px #e3e3e3;
+	border-bottom: solid 1px #e3e3e3;
+}
+.sc-side>.filters>.sc-filter-content>div {
+	width: 90%;
+	margin-left: 4%;
+	line-height: 3.9;
+	border-bottom: solid 1px #e3e3e3;
+	cursor: pointer;
+}
+.sc-side>.filters>.sc-filter-content>div:hover {
+	width: 100%;
+	margin-left: 0%;
+	background-color: #f3f3f3;
+}
+.sc-side>.filters>.sc-filter-content>div:first-child:hover {
+	width: 90%;
+	margin-left: 4%;
+	cursor: default;
+	background-color: #fff;
+}
+.sc-side>.filters>.sc-filter-content>div:last-child:hover {
+}
+.sc-side>.filters>.sc-filter-content>div:last-child {
+	border: 0px;
+}
+
+.sc-side>.filters>.sc-filter-content>div>label>i,
+.sc-side>.filters>.sc-filter-content>div>i {
+	font-size: 25px;
+	color: @main-color;
+	margin-left: 10%;
+	padding-right: 7%;
+}
+
+.sc-side>.filters>.sc-filter-content>div.ft-budget,
+.sc-side>.filters>.sc-filter-content>div.ft-choice{
+	height: 51px;
+}
+.sc-side>.filters>.sc-filter-content>div.ft-budget>p {
+	display: inline;
+	margin-left: -6%;
+}
+.sc-side>.filters>.sc-filter-content>div.ft-choice>p {
+	display: inline;
+	margin-left: -2%;
+}
+
+
+.sc-side>.filters>.sc-filter-content>div>input.parking {
+	display: none;
+	top: 0px;
+	left: 0px;
+	opacity: 0;
+	cursor: pointer;
+}
+.sc-side>.filters>.sc-filter-content>div> i.check-img {
+	display: inline-block;
+	width: 11px;
+	height: 13px;
+	bottom: 18%;
+	margin-left: 2%;
+	background: url(../img/btn_checkbox.png) top;
+}
+.sc-side>.filters>.sc-filter-content>div label {
+	display: inline;
+	width: 100%;
+	font-size: 12px;
+	cursor: pointer;
+}
+
+.sc-side>.filters>.sc-filter-btn {
+	width: 100%;
+	height: 44px;
+	margin-top: 2%;
+	color: #fff;
+	font-size: 15px;
+	background-color: @main-color;
+	border-radius: 3px;
+}
+.sc-side>.filters>.sc-filter-btn:hover {
+	background-color: #b9062f;
+}
+
+//사이드 필터의 예산
+.budget-choice-box {
+	display: none;
+	position: absolute;
+	width: 68.1%;
+	height: 148px;
+	top: 45%;
+	right: 102%;
+	background-color: rgba(255,255,255, 0.9);
+}
+.budget-choice-box>p {
+	display: inline;
+	font-size: 12px;
+	font-weight: bold;
+	color: @main-color;
+	margin-left: 10%;
+	margin-right: 20%;
+}
+.budget-choice-box>.fa-times {
+	font-size: 18px;
+	color: #aaa;
+	margin-top: 4%;
+	cursor: pointer;
+}
+.budget-choice-box>ul {
+	font-size: 12px;
+	color: #666;
+	margin-left: 10%;
+	margin-top: -5%;
+	line-height: 2;
+}
+.budget-choice-box>ul>li{
+	display: block;
+}
+.budget-choice-box>ul>li:hover {
+	background-color: #d9d9d9;
+	margin-right: 10%;
+}
+.budget-choice-box>ul>li>input.bud-choice {
+	display: none;
+	top: 0px;
+	left: 0px;
+	opacity: 0;
+	cursor: pointer;
+}
+.budget-choice-box>ul>li>i.check-img {
+	position: relative;
+	display: inline-block;
+	width: 15px;
+	height: 13px;
+	margin-right: 5%;
+	background: url(../img/btn_checkbox.png) top;
+}
+.budget-choice-box>ul>li>label.bu-label {
+	width: 100%;
+	font-size: 12px;
+	cursor: pointer;
+}
+
+.budget-confirm-btn {
+	width: 100%;
+	height: 35px;
+	color: #fff;
+	background-color: @main-color;
+	border-radius: 5px;
+	margin-top: 15px;
+	line-height: 1;
+}
+
+
+//사이드 필터의 상황별 선택
+.situation-choice-box {
+	display: none;
+	position: absolute;
+	width: 98%;
+	height: 348px;
+	top: 30%;
+	right: 102.3%;
+	background-color: rgba(255,255,255, 0.9);
+}
+.situation-choice-box>p {
+	display: inline;
+	font-size: 12px;
+	font-weight: bold;
+	color: @main-color;
+	margin-top: 5%;
+	margin-left: 10%;
+	margin-right: 47%;
+}
+.situation-choice-box>.fa-times {
+	font-size: 18px;
+	color: #aaa;
+	margin-top: 4%;
+	cursor: pointer;
+}
+.situation-choice-box>ul {
+	font-size: 12px;
+	color: #666;
+	margin-top: -3%;
+	margin-left: 10%;
+	line-height: 2;
+}
+.situation-choice-box>ul>label {
+	display: inline;
+	cursor: pointer;
+}
+.situation-choice-box>ul>label>li{
+	display: block;
+}
+.situation-choice-box>ul>label>li:hover {
+	background-color: #d9d9d9;
+	margin-right: 10%;
+}
+.situation-choice-box>ul>label>li>input.si-choice {
+	display: none;
+	top: 0px;
+	left: 0px;
+	opacity: 0;
+	cursor: pointer;
+}
+.situation-choice-box>ul>label>li>i.check-img {
+	display: inline-block;
+	width: 15px;
+	height: 13px;
+	margin-right: 3%;
+	background: url(../img/btn_checkbox.png) top;
+}
+.situation-choice-box>ul>label>li>p {
+	display: inline;
+	width: 100%;
+	font-size: 12px;
+	cursor: pointer;
+}
+
+.situation-confirm-btn {
+	width: 100%;
+	height: 35px;
+	color: #fff;
+	background-color: @main-color;
+	border-radius: 5px;
+	margin-top: 10%;
+	line-height: 1;
+}
+//상황별 선택 중 선택되면 리스트
+.si-choice-list {
+	width: 89%;
+	max-height: 107px;
+	overflow: auto;
+	margin-top: -2%;
+	margin-bottom: 3%;
+	margin-left: 10%;
+}
+.si-choice-list>li {
+	color: #aaa;
+	font-size: 11px;
+	line-height: 2;
+}
+.si-choice-list>li>i {
+	font-size: 13px;
+	float: right;
+	margin-top: 3%;
+	margin-right: 8%;
+}
+
+
+.sc-side>.recommend-ticket {
+	position: relative;
+	width: 147.9%;
+	height: 910px;
+	float: right;
+	margin-top: 30%;
+	left: 1%;
+	text-align: center;
+}
+.sc-side>.recommend-ticket>.sc-ticket-content {
+	height: 862px;
+	font-size: 13px;
+	color: @domain-text-color;
+	background-color: #fff;
+	border-top: solid 2px @main-color;
+	border-left: solid 1px #e3e3e3;
+	border-right: solid 1px #e3e3e3;
+	border-bottom: solid 1px #e3e3e3;
+}
+.sc-side>.recommend-ticket>.sc-ticket-content>div {
+	width: 90%;
+	margin-left: 4%;
+	padding-left: 9%;
+	margin-top: 106%;
+	border-bottom: solid 1px #e3e3e3;
+}
+.sc-side>.recommend-ticket>.sc-ticket-content>div:first-child {
+	margin-top: 4%;
+	padding-bottom: 4%;
+}
+.sc-side>.recommend-ticket>.sc-ticket-content>div:last-child {
+	border: 0;
+}
+
+.sc-side>.recommend-ticket>.sc-ticket-content>div>.tk-box {
+	position: relative;
+	text-align: left;
+	line-height: 20px;
+	left: -4%;
+}
+.sc-side>.recommend-ticket>.sc-ticket-content>div>.tk-box>i {
+	position: absolute;
+	width: 100%;
+	height: 438%;
+	margin-top: -120%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position-x: 50%;
+	border-radius: 3px;
+	cursor: pointer;
+}
+.sc-side>.recommend-ticket>.sc-ticket-content>div>.tk-box>.tk-box-text {
+	position: relative;
+	bottom: 25px;
+}
+.sc-side>.recommend-ticket>.sc-ticket-content>div>.tk-box>.tk-box-text>.tk-store-name {
+	font-size: 13px;
+	font-weight: bold;
+	color: @main-text-color;
+}
+.sc-side>.recommend-ticket>.sc-ticket-content>div>.tk-box>.tk-box-text>.tk-desc {
+	font-size: 12px;
+	color: #999;
+}
+.sc-side>.recommend-ticket>.sc-ticket-btn {
+	width: 100%;
+	height: 44px;
+	margin-top: 5%;
+	color: #fff;
+	font-size: 15px;
+	background-color: @main-text-color;
+	border-radius: 3px;
+}
+
+
+
+
+#popup-booking {
+	display: none;
+	position: fixed;
+	top: 7.5%;
+	width: 599px;
+	height: 538px;
+	margin-left: 30%;
+	z-index: 10;
+
+}
+.popup-box {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #fff;
+	border-radius: 10px;
+	padding: 5% 4% 1% 5%;
+}
+.booking-confirm-btn {
+	width: 100%;
+	height: 40px;
+	color: #fff;
+	background-color: @main-color;
+	border-radius: 5px;
+	margin-top: 5px;
+}
+
+
+.bk-store {
+	border-bottom: solid 1px #e3e3e3;
+	padding-bottom: 1.5%;
+}
+.bt-store-name {
+	display: inline-block;
+	font-size: 19px;
+	font-weight: bold;
+	color: @main-color;
+}
+.bt-store-category {
+	display: inline-block;
+	font-size: 13px;
+	font-weight: bold;
+	color: #969696;
+	margin-left: 1%;
+}
+.bk-store>i.fa-times {
+	float: right;
+	cursor: pointer;
+}
+
+
+.bk-info {
+	display: inline-flex;
+	text-align: center;
+	margin-top: 5%;
+
+}
+.bk-info>.bk-input-box {
+	display: inline-block;
+	width: 175px;
+	height: 43px;
+	border: solid 1px #c8c8c8;
+	border-radius: 3px;
+	padding: 8px 0px 1px 5px;
+	margin-right: 7px;
+	cursor: pointer;
+}
+.bk-info>.bk-input-box.peo {
+	cursor: default;
+}
+.bk-info>.bk-input-box>.icon-users {
+	position: absolute;
+	width: 27px;
+	height: 22px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position-x: 50%;
+	background-position-y: 50%;
+	left: 6%;
+}
+.bk-info>.bk-input-box>p {
+	position: relative;
+	display: inline-block;
+	left: 1%;
+	font-weight: bold;
+	color: @main-text-color;
+}
+.bk-info>.bk-input-box>p.p-peo {
+	left: 16%;
+}
+
+.bk-info>.bk-input-box>.count-box {
+	display: inline-block;
+	width: 52%;
+	border: solid 1px #c8c8c8;
+	margin-left: 20%;
+	text-align: center;
+}
+
+.bk-info>.bk-input-box>.count-box>.fa-minus{
+	border-right: solid 1px #c8c8c8;
+	width: 25px;
+	height: 24px;
+	padding-top: 5px;
+	cursor: pointer;
+}
+.bk-info>.bk-input-box>.count-box>.fa-minus:hover{
+	background-color: #e3e3e3;
+}
+.bk-info>.bk-input-box>.count-box>.count-people {
+	display: inline-block;
+	width: 27px;
+	cursor: default;
+}
+.bk-info>.bk-input-box>.count-box>.fa-plus {
+	width: 25px;
+	height: 24px;
+	color: @main-color;
+	border-left: solid 1px #c8c8c8;
+	padding-top: 5px;
+	cursor: pointer;
+}
+.bk-info>.bk-input-box>.count-box>.fa-plus:hover{
+	background-color: #e3e3e3;
+}
+
+.bk-info>.bk-input-box>.fa-calendar {
+	cursor: pointer;
+}
+.bk-info>.bk-input-box>.bk-date {
+	display: inline-block;
+	font-size: 12px;
+	margin-left: 5%;
+	cursor: pointer;
+}
+.bk-info>.bk-input-box>.fa-angle-down {
+	color: @main-color;
+	font-size: 18px;
+	margin-left: 15%;
+	margin-top: 2%;
+	cursor: pointer;
+}
+
+
+//달력 박스
+.calendar-box {
+	display: none;
+	position: absolute;
+	width: 175px;
+	height: 202px;
+	margin-top: 7%;
+	margin-left: 30.4%;
+	background-color: #fff;
+	border: solid 1px @main-text-color;
+}
+.calendar-box>.box-table {
+	margin-top: 15px;
+}
+.cal-left-arrow {
+	background-image: url("../img/icon.none.left.arrow.JPG");
+	position: absolute;
+	display: block;
+	width: 25px;
+	height: 25px;
+	margin-top: 15px;
+	margin-left: 15px;
+	background-size: cover;
+	background-position-x: 50%;
+	background-position-y: 50%;
+}
+.cal-left-arrow:hover {
+	background-image: url("../img/icon.none.left.hover.arrow.JPG");
+}
+.cal-right-arrow {
+	background-image: url("../img/icon.right.arrow.JPG");
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	margin-top: 14px;
+	margin-left: 45px;
+	background-size: cover;
+	background-position-x: 50%;
+	background-position-y: 50%;
+}
+.cal-right-arrow:hover {
+	background-image: url("../img/icon.right.hover.arrow.JPG");
+}
+
+.month-and-year {
+	font-size: 12px;
+}
+.calendar {
+	display: table;
+	width: 100%;
+	overflow: visible;
+	text-align: center;
+	border-collapse: separate;
+	border-spacing: 2px;
+}
+.calendar .week {
+	height: 27px;
+	font-size: 11px;
+	font-weight: bold;
+	padding-top: 15px;
+}
+.calendar .week:first-child {	//일
+	color: @main-color;
+}
+.calendar .week:nth-child(7) {	//토
+	color: @main-color;
+}
+
+.calendar .saturday {
+	height: 22px;
+	font-size: 11px;
+	color: #c8c8c8;
+	cursor: default;
+}
+.calendar .sunday {
+	height: 22px;
+	font-size: 11px;
+	color: #c8c8c8;
+	cursor: default;
+}
+.calendar .today {//오늘
+	height: 22px;
+	font-size: 11px;
+	border: solid 1px @main-color;
+	cursor: pointer;
+}
+.calendar .today:hover {
+	background-color: #e3e3e3;
+}
+
+.calendar .days-of-previous-today {	//오늘 이전의 날짜들
+	height: 22px;
+	font-size: 11px;
+	color: #c8c8c8;
+	cursor: default;
+}
+.calendar .blank {
+	height: 22px;
+	font-size: 11px;
+	color: #c8c8c8;
+}
+.calendar .days {	//평일
+	height: 22px;
+	font-size: 11px;
+	color: @main-text-color;
+	background-color: #fff;
+	cursor: pointer;
+}
+.calendar .days:hover {
+	background-color: #e3e3e3;
+}
+
+
+
+.bk-info>.bk-input-box>.fa-clock-o {
+	cursor: pointer;
+}
+.bk-info>.bk-input-box>.bk-time {
+	display: inline-block;
+	font-size: 12px;
+	margin-left: 5%;
+	cursor: pointer;
+}
+
+//시간 박스
+.time-box {
+	display: none;
+	position: absolute;
+	width: 175px;
+	height: 37%;
+	margin-top: 7%;
+	margin-left: 60.8%;
+	background-color: #fff;
+	border: solid 1px @main-text-color;
+	overflow: auto;
+}
+.time-box>ul {
+	width: 100%;
+	text-align: center;
+	line-height: 2.5;
+	cursor: pointer;
+}
+.time-box>ul>li {
+	width: 90%;
+	margin-left: 5%;
+	color: @main-text-color;
+	font-size: 13px;
+	font-weight: bold;
+	border-bottom: solid 1px #e3e3e3;
+}
+.time-box>ul>li:hover {
+	width: 100%;
+	margin-left: 0;
+	background-color: #e3e3e3;
+}
+
+
+.bk-preview {
+	text-align: center;
+	font-size: 15px;
+	font-weight: bold;
+	margin-top: 5%;
+	color: @main-text-color;
+}
+
+
+
+.user-info {
+	margin-top: 5%;
+}
+.user-info>.user-input-box {
+	display: inline-block;
+	width: 208px;
+	height: 43px;
+	border: solid 1px #c8c8c8;
+	border-radius: 3px;
+	margin-left: 1%;
+}
+.user-info>.user-input-box>.icon-user {
+	position: absolute;
+	width: 27px;
+	height: 23px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position-x: 50%;
+	background-position-y: 50%;
+	margin-top: 2%;
+	left: 6.3%;
+}
+.user-info>.user-input-box>input.ip-name {
+	width: 142px;
+	margin-top: 5%;
+	margin-left: 23%;
+}
+.user-info>.user-input-box>input.ip-phone {
+	width: 142px;
+	margin-top: -3%;
+	margin-left: 5%;
+}
+.user-info>.user-input-box>.fa-phone {
+	font-size: 20px;
+	margin-top: 5%;
+	margin-left: 5%;
+}
+.user-info>button {
+	width: 105px;
+	height: 42px;
+	color: #fff;
+	background-color: #969696;
+	border-radius: 3px;
+	cursor: pointer;
+	margin-top: -1%;
+}
+
+.user-info>input.ip-num {
+	width: 208px;
+	height: 43px;
+	border: solid 1px #c8c8c8;
+	border-radius: 3px;
+	text-align: center;
+	margin-top: 1.5%;
+	margin-left: 41%;
+}
+.user-info>p {
+	display: inline-block;
+	font-size: 10px;
+	color: @main-text-color;
+	margin-top: 2px;
+	margin-left: 41%;
+}
+.user-info>a {
+	font-size: 10px;
+	color: @main-color;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+
+.demand-box {
+	width: 542px;
+	height: 61px;
+	border: solid 1px #c8c8c8;
+	border-radius: 4px;
+	margin-top: 3%;
+}
+.demand-box>.bk-demand {
+	width: 516px;
+	height: 35px;
+	font-size: 13px;
+	color: @domain-text-color;
+	resize: none;
+	margin-top: 1%;
+	margin-left: 2%;
+}
+.demand-box>p.count-text {
+	font-size: 10px;
+	font-weight: bold;
+	color: #b4b4b4;
+	text-align: right;
+	margin-top: 5%;
+}
+
+
+.popup-box>p.notice {
+	font-size: 12px;
+	text-align: center;
+	color: @main-color;
+	margin-top: 7%;
+}
