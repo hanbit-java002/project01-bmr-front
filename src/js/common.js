@@ -182,25 +182,15 @@ define([
 
 
 	<!-- 검색창에서 엔터 혹은 검색 버튼 클릭 시-->
-	function getKeyWord() {
-		var keyWord = document.getElementById("input-search-text").value;
-		return keyWord;
-	}
 	function goSearchHtml() {
-		var k;
 		$("#input-search-text").on("keydown", function(event) {
 			if(event.keyCode == 13) { <!-- 엔터는 13 -->
-				k = getKeyWord();
 				location.href = "search.html";
-				alert("입력값: " + k);
 			}
 		});
 		$(".search-confirm").on("click", function() {
-			k = getKeyWord();
 			location.href = "search.html";
-			alert("입력값: " + k);
 		});
-		return k;
 	}
 
 
@@ -237,11 +227,27 @@ define([
 
 
 	goSearchHtml();
+
+
+	<!-- 동그라미물음표 버튼 클릭 시 -->
+	$(".q-button, i.fa-times").on("click", function() {
+		$(".q-send-box").toggle();
+		$(".q-input").focus();	<!-- 처음 실행 시에 포커스 된 상태로(콘텐츠박스의 아웃라인 빨간색) -->
+
+		<!-- 클릭되면 투명도1인 상태로 유지하다가 한 번 더 클릭되면 다시 투명도0.5상태로-->
+		$(".q-img").toggleClass("clicked");
+
+		<!-- 창 닫고 나면 section 위치 초기화. -->
+		if($(".q-send-box").hide) {
+			$("section.sec01-email").css("left", "0%");
+			$("section.sec02-add-func").css("left", "100%");
+		}
+	});
+
 	return {
 		showRegionFilter: showRegionFilter,
 		hideRegionFilter: hideRegionFilter,
 		showFoodFilter: showFoodFilter,
 		hideFoodFilter: hideFoodFilter,
-		getKeyWord: getKeyWord,
 		goSearchHtml: goSearchHtml};
 });

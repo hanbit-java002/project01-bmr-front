@@ -138,71 +138,177 @@ require([
 
 	Calendar.setDate(1);	<!-- 달력은 1일부터 표시해야하므로 .setDate()로 1일로 맞춤-->
 
-
 	var DAYS_OF_WEEK = 7;	<!-- 일주일은 7일 -->
 	var DAYS_OF_MONTH = 31;	<!-- 한달은 최대 31일 -->
 
 	var calHTML;
 
-	calHTML = "<b class='month-and-year'>" + month_of_year[month] + " " + year + "</b>";
-	calHTML += "<table class='calendar' border='0' cellspacing='0' cellpadding='2'>";
+	/**
+	 *
+	 * 함수 정의
+	 *
+	 * **/
+	<!-- 달력정의 하는 함수-->
+	function calendar() {
+		calHTML = "<b class='month-and-year'>" + month_of_year[month] + " " + year + "</b>";
+		calHTML += "<table class='calendar' border='0' cellspacing='0' cellpadding='2'>";
 
 
-	<!-- 맨 첫줄은 요일을 나타냄-->
-	calHTML += "<tr>";
+		<!-- 맨 첫줄은 요일을 나타냄-->
+		calHTML += "<tr>";
 
-	/** 요일 td(열) **/
-	for(var i=0; i<DAYS_OF_WEEK; ++i) {
-		<!-- 7번 돌면서 day_of_week의 값을 빼옴-->
-		calHTML += "<td class='week'>" + day_of_week[i] + "</td>";
-	}
-
-
-	/** 1일이 시작하기 전까지의 이전 요일들을 blank함.**/
-	for(var i=0; i<weekday; ++i) {
-		calHTML += "<td class='blank'> </td>";	<!-- blank (1일 이전의 날짜) -->
-	}
-
-	/** 1일부터 시작 **/
-	for(var i=0; i<DAYS_OF_MONTH; ++i) {
-		<!-- 날짜가 i보다 클 때만 표현 (날짜가 i보다 작으면, 다음달로 넘어가서 1일이 된것)-->
-		if(Calendar.getDate() > i) {
-			var day = Calendar.getDate();		<!-- 날짜(1~31) -->
-			var week_day = Calendar.getDay();	<!-- 요일(0~6) -->
+		/** 요일 td(열) **/
+		for(var i=0; i<DAYS_OF_WEEK; ++i) {
+			<!-- 7번 돌면서 day_of_week의 값을 빼옴-->
+			calHTML += "<td class='week'>" + day_of_week[i] + "</td>";
+		}
+		calHTML += "</tr>";
 
 
-			if(week_day ==0) { <!-- 만약 일요일이면, tr로 한 칸 내려감-->
-				calHTML += "<tr>";
-			}
-
-			if(day < today) {
-				calHTML += "<td class='days-of-previous-today'>" + day + "</td>";
-			}
-			else if(day == today) { <!-- 만약 오늘 날짜라면 -->
-				calHTML += "<td class='today'>" + day + "</td>";	<!-- 오늘 날짜 -->
-			}
-			else {
-				switch(week_day) {
-					case 0:				/** 일요일 **/
-						calHTML += "<td class='sunday'>" + day + "</td>";
-						break;
-
-					case 6:				/** 토요일 **/
-					calHTML += "<td class='saturday'>" + day + "</td>";
-					calHTML += "</tr>";	<!-- 토요일이면 /tr -->
-						break;
-
-					default:			/** 평일 **/
-					calHTML += "<td class='days'>" + day + "</td>";
-						break;
-				}
-			}
+		/** 1일이 시작하기 전까지의 이전 요일들을 blank함.**/
+		for(var i=0; i<weekday; ++i) {
+			calHTML += "<td class='blank'> </td>";	<!-- blank (1일 이전의 날짜) -->
 		}
 
-		/** 다음 날짜로 넘어가기 **/
-		Calendar.setDate(Calendar.getDate() + 1);
+		/** 1일부터 시작 **/
+		for(var i=0; i<DAYS_OF_MONTH; ++i) {
+			<!-- 날짜가 i보다 클 때만 표현 (날짜가 i보다 작으면, 다음달로 넘어가서 1일이 된것)-->
+			if(Calendar.getDate() > i) {
+				var day = Calendar.getDate();		<!-- 날짜(1~31) -->
+				var week_day = Calendar.getDay();	<!-- 요일(0~6) -->
+
+
+				if(week_day ==0) { <!-- 만약 일요일이면, tr로 한 칸 내려감-->
+					calHTML += "<tr>";
+				}
+
+				if(day < today) {
+					calHTML += "<td class='days-of-previous-today'>" + day + "</td>";
+				}
+				else if(day == today) { <!-- 만약 오늘 날짜라면 -->
+					calHTML += "<td class='today'>" + day + "</td>";	<!-- 오늘 날짜 -->
+				}
+				else {
+					switch(week_day) {
+						case 0:				/** 일요일 **/
+						calHTML += "<td class='sunday'>" + day + "</td>";
+							break;
+
+						case 6:				/** 토요일 **/
+						calHTML += "<td class='saturday'>" + day + "</td>";
+							calHTML += "</tr>";	<!-- 토요일이면 /tr -->
+							break;
+
+						default:			/** 평일 **/
+						calHTML += "<td class='days'>" + day + "</td>";
+							break;
+					}
+				}
+			}
+
+			/** 다음 날짜로 넘어가기 **/
+			Calendar.setDate(Calendar.getDate() + 1);
+		}
+		calHTML += "</table>";
 	}
-	calHTML += "</table>";
+
+
+	<!-- 날짜를 클릭하면 그 날짜에 border씌워지고, 그 날짜에 따라 bk-date와 pre-date가 달라지는 함수 -->
+	function clickDay() {
+		$(".today, .days").on("click", function() {
+			$(".today, .days").css("border", "0");
+			$(this).css("border", "solid 1px #c91b3c");
+			$(".calendar-box").hide(event.stopPropagation());
+
+			var clickDay = $(this).text();
+			$(".bk-date").text(month_of_year[month] + " " + clickDay + "일");
+			$(".bk-date").css("color", "#c91b3c");
+			$(".pre-date").text(month_of_year[month] + " " + clickDay + "일");
+		});
+	}
+
+
+	/**  ------------------
+	 * 화살표를 통해 이번달과 다음달만 보여주도록...
+	 * 오른쪽화살표는 한 번만 가능하고(다음달만)
+	 * 왼쪽화살표는 오른쪽화살표가 눌러진 이후에만 한 번 가능(이번달로 회귀를 위해)**/
+
+	var r_count=0;
+	var l_count=1;
+
+	$(".cal-right-arrow").on("click", function() {
+		if(r_count != 1) {
+			Calendar.setMonth(month+1);		<!-- 다음달로 넘어가기 위해 현재달+1 -->
+			month = Calendar.getMonth();
+
+			Calendar.setDate(1);
+
+			calendar();	<!-- 함수호출... 다음 달. -->
+			$(".calendar-box>table>tbody>tr>td").html(calHTML);
+			$(".today").css("border", "0");
+			clickDay();
+
+			r_count = 1;
+			l_count = 0;
+
+			$(".cal-right-arrow").css("background-image", "url('../img/icon.none.right.arrow.JPG')");
+			$(".cal-left-arrow").css("background-image", "url('../img/icon.left.arrow.JPG')");
+
+			$(".cal-right-arrow").on("mouseover", function() {
+				$(this).css("background-image", "url('../img/icon.none.right.hover.arrow.JPG')");
+				$(this).css("cursor", "default");
+			});
+			$(".cal-right-arrow").on("mouseout", function() {
+				$(this).css("background-image", "url('../img/icon.none.right.arrow.JPG')");
+			});
+
+			$(".cal-left-arrow").on("mouseover", function() {
+				$(this).css("background-image", "url('../img/icon.left.hover.arrow.JPG')");
+				$(this).css("cursor", "pointer");
+			});
+			$(".cal-left-arrow").on("mouseout", function() {
+				$(this).css("background-image", "url('../img/icon.left.arrow.JPG')");
+			});
+		}
+	});
+
+	$(".cal-left-arrow").on("click", function() {
+		if(l_count != 1) {
+			Calendar.setMonth(month-1);		<!-- 현재 다음달인 상태이므로 이번달로 회귀하기위해 현재달-1 -->
+			month = Calendar.getMonth();
+
+			Calendar.setDate(1);
+
+			calendar();	<!-- 함수호출... 다음 달에서 회귀하여 이번 달. -->
+			$(".calendar-box>table>tbody>tr>td").html(calHTML);
+			clickDay();
+
+			l_count = 1;
+			r_count = 0;
+
+			$(".cal-left-arrow").css("background-image", "url('../img/icon.none.left.arrow.JPG')");
+			$(".cal-right-arrow").css("background-image", "url('../img/icon.right.arrow.JPG')");
+
+			$(".cal-left-arrow").on("mouseover", function() {
+				$(this).css("background-image", "url('../img/icon.none.left.hover.arrow.JPG')");
+				$(this).css("cursor", "default");
+			});
+			$(".cal-left-arrow").on("mouseout", function() {
+				$(this).css("background-image", "url('../img/icon.none.left.arrow.JPG')");
+			});
+			$(".cal-right-arrow").on("mouseover", function() {
+				$(this).css("background-image", "url('../img/icon.right.hover.arrow.JPG')");
+				$(this).css("cursor", "pointer");
+			});
+			$(".cal-right-arrow").on("mouseout", function() {
+				$(this).css("background-image", "url('../img/icon.right.arrow.JPG')");
+			});
+		}
+	});
+	/** ------------ **/
+
+
+	calendar(); <!-- 함수호출... 최초로 보여지는 달. 이번달. -->
 
 	$(".calendar-box>table>tbody>tr>td").append(calHTML);
 
@@ -213,19 +319,11 @@ require([
 	popupHTML = month_of_year[month] + " " + today + "일" + "</span>";
 	$(".pre-date").append(popupHTML);
 
-	$(".today, .days").on("click", function() {
-		$(".today, .days").css("border", "0");
-		$(this).css("border", "solid 1px #c91b3c");
-		$(".calendar-box").hide(event.stopPropagation());
 
-		var clickDay = $(this).text();
-		$(".bk-date").text(month_of_year[month] + " " + clickDay + "일");
-		$(".bk-date").css("color", "#c91b3c");
-		$(".pre-date").text(month_of_year[month] + " " + clickDay + "일");
-	});
+	clickDay();	<!-- 함수호출.. 이번달의 클릭한 날짜에 따라 bk-date와 pre-date가 달라짐. -->
+
 
 	/** ---------------------------------------------------------------**/
-
 
 	<!--  예약 팝업창 시간별 예약하기 창 -->
 	var now = new Date();

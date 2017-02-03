@@ -27,4 +27,9 @@ require([
 
 		$(".section-contents>ul").append(sectionHTML);
 	}
+
+
+	$(".sec-img").on("click", function() {
+		location.href = "search.html";
+	});
 });

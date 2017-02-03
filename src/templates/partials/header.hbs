@@ -441,3 +441,131 @@
 			<a class="menu-items">매거진</a>
 		</div>
 	</header>
+
+
+	<div class="q-button">
+		<div class="q-img"></div>
+	</div>
+
+	<div class="q-send-box">
+		<section class="sec01-email">
+			<div class="q-send-title">관리자에게 이메일 보내기</div>
+			<i class="fa fa-times"></i>
+
+			<div class="q-contents">
+				<div class="q-contents-box">
+					<div class="q-text-box">
+						<textarea class="q-input" onfocus="q_text_focus()" onblur="q_text_focus_out()" placeholder="문의 사항이나 서비스에 대한 피드백을 적어주세요"></textarea>
+					</div>
+					<i class="fa fa-camera" onmouseover="camera_mouseover()" onmouseout="camera_mouseout()"> </i>
+				</div>
+			</div>
+
+			<div class="q-sel-move">
+				<button class="q-send-btn">다음</button><br/>
+
+				<a class="q-send-more" onclick="clickAddFunc()">앞으로 어떤 기능이 추가되면 좋을까요?</a><br/>
+
+				<span class="q-by">Powered by <a>UserVoice</a></span>
+			</div>
+		</section>
+
+		<section class="sec02-add-func">
+			<div class="q-send-title">앞으로 어떤 기능을 추가할까요?</div>
+			<i class="fa fa-times"></i>
+
+			<div class="q-contents">
+				<div class="q-select-func">
+					<button class="sel01">
+						<span class="sel-caption">파이어폭스 접근성 개선?!</span>  <i class="fa fa-angle-right"></i>
+					</button>
+					<button class="sel02">
+						<span class="sel-caption">메뉴판 사진 업데이트 필요</span> <i class="fa fa-angle-right"></i>
+					</button>
+				</div>
+			</div>
+
+			<div class="q-sel-move">
+				<i class="fa fa-arrow-left" onclick="FuncLeftArrow()"></i>
+				<a class="q-go-idea">당신만의 아이디어를 올려주세요</a>
+				<a class="q-skip">이 세트 건너뛰기</a>
+
+				<a class="q-send-more" onclick="clickSendMail()">관리자에게 이메일 보내기</a><br/>
+
+				<span class="q-by">Powered by <a>UserVoice</a></span>
+			</div>
+		</section>
+
+		<section class="sec03-function">
+
+		</section>
+		<section class="sec04-idea">
+
+		</section>
+
+		<div class="q-send-box-arrow"></div>
+	</div>
+
+
+	<script>
+		//문의 박스의 텍스트에 포커스될 때 색깔(빨강)과 포커스아웃될 때 색깔(회색) 함수 정의
+		function q_text_focus() {
+			$(".q-contents-box").css("border-color", "#fa3232");
+		}
+		function q_text_focus_out() {
+			$(".q-contents-box").css("border-color", "#ccc");
+		}
+
+
+		//카메라 아이콘에 마우스 오버되면 색깔 진해지고 글씨 옆에 붙이기
+		function camera_mouseover() {
+			$(".fa-camera").css("color", "#555");
+			$(".fa-camera").append("<span>스크린 샷 또는 파일 첨부</span>");
+			$(".fa-camera>span").css("font-size", "11px");
+		}
+		//카메라 아이콘에 마우스 아웃되면 색깔 다시 연해지고 옆에 글씨 없애기
+		function camera_mouseout() {
+			$(".fa-camera").css("color", "#a9b0b7");
+			$(".fa-camera>span").text("");
+		}
+
+
+		//앞으로 어떤 기능을 추가할까요? 클릭 시 sec02로(애니메이트 왼쪽으로)
+		function clickAddFunc() {
+			$("section.sec02-add-func").animate({
+				left: "0%"}, 200, function() {
+
+				$("section.sec01-email").css("left", "100%");
+			});
+		}
+		//관리자에게 이메일 보내기 클릭 시 sec01로(애니메이트 왼쪽으로)
+		function clickSendMail() {
+			$("section.sec01-email").animate({
+				left: "0%"}, 200, function() {
+
+				$("section.sec02-add-func").css("left", "100%");
+			});
+		}
+
+
+		//sec02에 있는 왼쪽화살표 클릭 시(애니메이트 오른쪽으로)
+		function FuncLeftArrow() {
+			$("section.sec02-add-func").animate({
+				left: "100%"}, 200, function() {
+
+				$("section.sec01-email").css("left", "0%");
+			});
+
+			//sec01에도 왼쪽화살표 만들기
+			$(".sec01-email>.q-sel-move").append("<i class='fa fa-arrow-left sec01' onclick='MailLeftArrow()'> 뒤로가기</i>");
+		}
+		//sec01에 있는 왼쪽화살표 클릭 시(애니메이트 오른쪽으로)
+		function MailLeftArrow() {
+			$("section.sec01-email").animate({
+				left: "100%"}, 200, function() {
+
+				$("section.sec02-add-func").css("left", "0%");
+			});
+		}
+
+	</script>

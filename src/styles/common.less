@@ -458,6 +458,256 @@ ul {
 
 
 
+.q-button {
+	position: fixed;
+	bottom: 10px;
+	right: 12px;
+	cursor: pointer;
+	z-index: 1;
+}
+
+.q-img {
+	width: 42px;
+	height: 42px;
+	background-image: url("../img/q-image.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	opacity: 0.5;
+}
+.q-img:hover,		//호버되거나
+.q-img.clicked{	//클릭 되면 투명도 1 상태로
+	opacity: 1;
+}
+
+.q-send-box {
+	display: none;
+	position: fixed;
+	width: 20.6%;
+	height: 325px;
+	border-radius: 6px;
+	background-color: #fff;
+	box-shadow: 0px 2px 25px 9px rgba(0,0,0, 0.1);
+	right: 10px;
+	bottom: 60px;
+	overflow: hidden;
+	z-index: 10;
+}
+section.sec01-email {
+	position: absolute;
+	width: 100%;
+	top: 0%;
+	left: 0%;
+}
+section.sec02-add-func {
+	position: absolute;
+	width: 100%;
+	top: 0%;
+	left: 100%;
+}
+section.sec03-function {
+	display: none;
+	left: 0%;
+}
+section.sec04-idea {
+	display: none;
+	left: 0%;
+}
+
+//공통
+.q-send-box-arrow {
+	position: fixed;
+	width: 14px;
+	height: 14px;
+	background-color: #fff;
+	transform: rotate(45deg);
+	right: 31px;
+	bottom: 55px;
+}
+
+.q-send-title {
+	color: #4b4d4f;
+	font-size: 15px;
+	font-weight: bold;
+	text-align: center;
+	margin: 15px;
+}
+.fa-times {
+	position: absolute;
+	color: #ccc;
+	font-size: 17px;
+	top: 17px;
+	right: 14px;
+	cursor: pointer;
+	transition: all 300ms;
+}
+.fa-times:hover {
+	color: #555;
+	transform: rotate(90deg);
+
+}
+.q-contents {
+	width: 100%;
+	height: 162px;
+}
+.q-sel-move {
+	width: 100%;
+	height: 120px;
+	margin-top: 10px;
+}
+
+//sec01 관리자에게 이메일 보내기 부분
+.q-contents-box {
+	height: 100%;
+	border: solid 1px #ccc;
+	border-radius: 3px;
+	margin: 10px;
+	text-align: left;
+}
+.q-contents-box>.q-text-box {
+	height: 126px;
+	margin: 5px 2px;
+}
+.q-contents-box>.q-text-box>.q-input {
+	width: 100%;
+	height: 100%;
+	border: 0;
+	outline: none;
+	resize: none;
+}
+.q-contents-box>i.fa-camera {
+	color: #a9b0b7;
+	font-size: 16px;
+	margin-left: 10px;
+	cursor: pointer;
+}
+button.q-send-btn {
+	color: #fff;
+	background-color: #fa3232;
+	border: solid 1px #fa3232;
+	border-radius: 25px;
+	padding: 2px 12px;
+	float: right;
+	margin-right: 10px;
+	outline: none;
+}
+button.q-send-btn:hover {
+	opacity: 0.8;
+}
+
+
+//공통
+a.q-send-more {
+	display: block;
+	font-size: 12px;
+	color: #0a8cc6;
+	border-top: 2px solid #eee;
+	border-bottom: 1px solid #eee;
+	padding: 10px 10px;
+	margin-top: 16px;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+}
+a.q-send-more:hover {
+	color: #fff;
+	background-color: #e23a39;
+}
+span.q-by {
+	display: block;
+	color: #9ea5b2;
+	font-size: 11px;
+	text-align: center;
+	margin-top: -15px;
+	margin-bottom: 5px;
+}
+span.q-by>a {
+	color: #9ea5b2;
+	text-decoration: underline;
+	cursor: pointer;
+}
+span.q-by>a:hover {
+	color: #888;
+	text-decoration: none;
+}
+
+
+//sec02 앞으로 어떤 기능을 추가할까요? 부분
+.q-select-func {
+	position: relative;
+	height: 100%;
+	margin: 10px;
+	text-align: left;
+}
+.q-select-func>button {
+	display: block;
+	width: 100%;
+	height: 45%;
+	margin-bottom: 6px;
+	background-color: #e8ebed;
+	border: 0;
+	border-bottom: solid 1px #d2d4d6;
+	border-radius: 5px;
+	outline-color: #d2d4d6;
+}
+.q-select-func>button:hover {
+	background-color: #f7f7f7;
+}
+.q-select-func>button>.sel-caption {
+	display: inline-block;
+	color: @domain-text-color;
+	font-size: 14px;
+	float: left;
+	margin-left: 5%;
+	margin-right: 30%;
+}
+.q-select-func>button>i.fa-angle-right {
+	display: inline-block;
+	font-size: 25px;
+	color: #999;
+}
+
+.q-sel-move {
+	height: 120px;
+}
+i.fa-arrow-left {
+	position: absolute;
+	color: #999;
+	font-size: 16px;
+	margin-left: 10px;
+	margin-right: 10px;
+	cursor: pointer;
+}
+i.fa-arrow-left.sec01 {
+	top: 66%;
+	font-size: 14px;
+}
+a.q-go-idea {
+	position: absolute;
+	color: #fa3232;
+	font-size: 14px;
+	margin-left: 40px;
+	cursor: pointer;
+	text-decoration: none;
+}
+a.q-skip {
+	position: relative;
+	color: #999;
+	font-size: 13px;
+	cursor: pointer;
+	left: 77%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-decoration: none;
+}
+i.fa-arrow-left:hover,
+a.q-go-idea:hover,
+a.q-skip:hover {
+	color: @domain-text-color;
+}
+
+
+
+
 footer {
 	position: absolute;
 	bottom: 0px;
