@@ -59,6 +59,7 @@ ul {
 
 #main-logo {
 	position: relative;
+	width: 86px;
 	top: 7px;
 	left: 20%;
 	margin-left: -50px;
@@ -91,7 +92,7 @@ ul {
 
 #main-region {
 	position: relative;
-	width: 100%;
+	max-width: 93px;
 	left: 26%;
 	top: -26px;
 	color: #fff;
@@ -457,7 +458,317 @@ ul {
 }
 
 
+//로그인, 회원가입 창
+.sign-in-up-box {
+	display: none;
 
+	position: fixed;
+	width: 788px;
+	height: 495px;
+	top: 50%;
+	margin-top: -230px;
+	left: 50%;
+	margin-left: -394px;
+	background-image: url("../img/signInUp.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.sign-in-up-box>.fa-times{
+	position: relative;
+	font-size: 20px;
+	color: #999;
+	margin-top: 2px;
+	margin-right: 3px;
+	float: right;
+	cursor: pointer;
+}
+.sign-contents {
+	text-align: center;
+	color: #fff;
+	font-size: 12px;
+}
+.sign-contents>.s-title {
+	font-size: 40px;
+	font-weight: bold;
+	margin-top: 5%;
+	margin-bottom: 3px;
+	cursor: default;
+}
+
+//로그인 부분
+.section-sign-in {
+	display: none;
+	position: relative;
+}
+.section-sign-in>.s-desc {
+	font-size: 18px;
+	margin-top: 4%;
+	margin-bottom: 5%;
+	line-height: 1.7;
+}
+
+.section-sign-in>.sec01-choice {
+	display: none;
+
+	position: relative;
+}
+.sec01-choice>button {
+	display: block;
+	width: 238px;
+	margin-left: 268px;
+	margin-bottom: 2%;
+	border-radius: 3px;
+	padding: 11px 0px 11px 25px;
+	font-size: 14px;
+	outline: none;
+}
+.sec01-choice.signup>button {
+	font-size: 12px;
+	line-height: 2;
+}
+.sec01-choice>button.s-facebook-in {
+	border: 1px solid #1b4e95;
+	background-color: #1b4e95;
+}
+.sec01-choice>button.s-email-in {
+	border: 1px solid #2facbe;
+	background-color: #2facbe;
+	margin-bottom: 6%;
+}
+.sec01-choice>button>i {
+	font-size: 23px;
+	float: left;
+}
+a.go-sign-up {
+	font-size: 12px;
+	color: #ffa0a0;
+	text-decoration: underline;
+	cursor: pointer;
+}
+//이메일로 로그인 하기 버튼 클릭 시
+.section-sign-in>.sec02-email {
+	display: none;
+
+	position: relative;
+	top: 20px;
+	text-align: center;
+}
+.sec02-email>.write-in.signin {
+	text-align: left;
+	font-size: 13px;
+	margin-top: 1%;
+	margin-left: 293px;
+}
+.sec02-email>.write-in>input {
+	width: 200px;
+	height: 30px;
+	padding-left: 15px;
+	background-color: transparent;
+	border: solid 1px #fff;
+	border-radius: 3px;
+	outline: none;
+}
+.sec02-email>.write-in>input:focus {
+	background: rgba(255,255,255, 0.3);
+}
+.sec02-email>.login-btn {
+	width: 200px;
+	height: 40px;
+	font-size: 13px;
+	margin-top: 4%;
+	margin-bottom: 1%;
+	background-color: transparent;
+	border: solid 1px #fff;
+	border-radius: 3px;
+	outline: none;
+}
+.sec02-email>.login-btn:hover {
+	border: solid 1px #fa3232;
+	background: rgba(250,15,95, 0.3);
+}
+a.go-setup-pw {
+	font-size: 12px;
+	color: #ffa0a0;
+	text-decoration: underline;
+	cursor: pointer;
+}
+a.go-pre {
+	position: relative;
+	float: left;
+	margin-left: 2%;
+	color: #fff;
+	text-decoration: none;
+	cursor: pointer;
+}
+//비밀번호 재설정하기 클릭 시
+.section-sign-in>.sec03-setup-password {
+	display: none;
+
+	position: relative;
+	top: 20px;
+	text-align: center;
+}
+.sec03-setup-password>.write-in {
+	text-align: left;
+	font-size: 13px;
+	margin-left: 293px;
+}
+.sec03-setup-password>.write-in>input {
+	width: 200px;
+	height: 30px;
+	padding-left: 15px;
+	background-color: transparent;
+	border: solid 1px #fff;
+	border-radius: 3px;
+	outline: none;
+}
+.sec03-setup-password>.write-in>input:focus {
+	background: rgba(255,255,255, 0.3);
+}
+.sec03-setup-password>.btn-email-cfm {
+	width: 200px;
+	height: 40px;
+	font-size: 13px;
+	margin-top: 1%;
+	margin-bottom: 13%;
+	background-color: transparent;
+	border: solid 1px #fff;
+	border-radius: 3px;
+	outline: none;
+}
+.sec03-setup-password>.btn-email-cfm:hover {
+	border: solid 1px #fa3232;
+	background: rgba(250,15,95, 0.3);
+}
+
+
+
+//회원가입 부분
+.section-sign-up {
+	display: none;
+
+	position: relative;
+}
+.section-sign-up>.sec01-choice {
+	display: none;
+
+	position: relative;
+}
+.section-sign-up>.sec01-choice>.s-desc {
+	font-size: 25px;
+	margin-top: 7%;
+	margin-bottom: 5%;
+}
+a.go-sign-in {
+	font-size: 12px;
+	color: #ffa0a0;
+	text-decoration: underline;
+	cursor: pointer;
+}
+//이메일로 회원가입 하기 버튼 클릭 시
+.section-sign-up>.sec02-email>.s-desc {
+	font-size: 18px;
+	margin-bottom: 5%;
+}
+.section-sign-up>.sec02-email {
+	display: none;
+
+	position: relative;
+	top: 20px;
+	text-align: center;
+}
+.sec02-email>.write-in {
+	text-align: left;
+	font-size: 13px;
+	margin-top: 1%;
+	margin-left: 170px;
+}
+.sec02-email>.write-in.policy {
+	font-size: 10px;
+	margin-left: 27%;
+}
+.sec02-email>.write-in>li {
+	display: inline-block;
+	margin-right: 5%;
+}
+.sec02-email>.write-in>li.birth-date {
+	margin-right: 43px;
+}
+.sec02-email>.write-in>li>input {
+	width: 200px;
+	height: 30px;
+	padding-left: 15px;
+	background-color: transparent;
+	border: solid 1px #fff;
+	border-radius: 3px;
+	outline: none;
+}
+.sec02-email>.write-in>li>input:focus {
+	background: rgba(255,255,255, 0.3);
+}
+.sec02-email>.write-in>li.birth-date>input {
+	width: 39px;
+	display: inline-block;
+	padding-left: 3px;
+	margin-left: 13px;
+}
+.sec02-email>.write-in>li.birth-date>input.input-year{
+	margin-left: 0px;
+}
+.sec02-email>.write-in>li>button{
+	width: 95px;
+	height: 30px;
+	font-size: 13px;
+	background-color: transparent;
+	border: solid 1px #fff;
+	border-radius: 3px;
+	outline: none;
+	margin-left: 4px;
+}
+.sec02-email>.write-in>li>button.choice-gender {
+	display: inline-block;
+	margin-left: 0px;
+	margin-right: 4px;
+}
+.sec02-email>.write-in>li>button.choice-gender.clicked {
+	background: rgba(255,255,255, 0.5);
+}
+.sec02-email>.write-in>li>button:hover {
+	background: rgba(255,255,255, 0.3);
+}
+a.go-policy {
+	color: @main-color;
+	text-decoration: underline;
+	cursor: pointer;
+}
+.sec02-email>.sign-up-btn {
+	width: 158px;
+	height: 40px;
+	font-size: 13px;
+	margin-top: 2%;
+	margin-bottom: 1%;
+	background-color: transparent;
+	border: solid 1px #fff;
+	border-radius: 3px;
+	outline: none;
+}
+.sec02-email>.sign-up-btn:hover {
+	border: solid 1px #fa3232;
+	background: rgba(250,15,95, 0.3);
+}
+a.go-pre {
+	position: relative;
+	float: left;
+	margin-left: 2%;
+	color: #fff;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+
+
+
+//물음표 버튼
 .q-button {
 	position: fixed;
 	bottom: 10px;
@@ -483,7 +794,7 @@ ul {
 	display: none;
 	position: fixed;
 	width: 20.6%;
-	min-width: 273px;
+	min-width: 315px;
 	height: 325px;
 	border-radius: 6px;
 	background-color: #fff;
@@ -506,12 +817,16 @@ section.sec02-add-func {
 	left: 100%;
 }
 section.sec03-function {
-	display: none;
-	left: 0%;
+	position: absolute;
+	width: 100%;
+	top: 0%;
+	left: 200%;
 }
 section.sec04-idea {
-	display: none;
-	left: 0%;
+	position: absolute;
+	width: 100%;
+	top: 0%;
+	left: -100%;
 }
 
 //공통
@@ -532,7 +847,7 @@ section.sec04-idea {
 	text-align: center;
 	margin: 15px;
 }
-.fa-times {
+.fa-times.q {
 	position: absolute;
 	color: #ccc;
 	font-size: 17px;
@@ -541,7 +856,7 @@ section.sec04-idea {
 	cursor: pointer;
 	transition: all 300ms;
 }
-.fa-times:hover {
+.fa-times.q:hover {
 	color: #555;
 	transform: rotate(90deg);
 
@@ -678,7 +993,8 @@ i.fa-arrow-left {
 	margin-right: 10px;
 	cursor: pointer;
 }
-i.fa-arrow-left.sec01 {
+i.fa-arrow-left.sec01,
+i.fa-arrow-left.sec04{
 	top: 66%;
 	font-size: 14px;
 }
@@ -705,6 +1021,73 @@ a.q-go-idea:hover,
 a.q-skip:hover {
 	color: @domain-text-color;
 }
+
+
+//sec03 기능 아이디어
+.q-like-idea {
+	font-size: 12px;
+	color: #8790a0;
+	text-align: center;
+	margin-top: -10px;
+}
+.q-func-contents {
+	width: 100%;
+	height: 200px;
+	padding: 15px 10px;
+	line-height: 1.5;
+}
+.q-func-contents>.q-func-text {
+	width: 100%;
+	height: 100%;
+	color: #555;
+	font-size: 12px;
+}
+.q-sel-func {
+	width: 100%;
+	height: 53px;
+	margin-top: 9%;
+}
+.q-sel-func>i.fa-arrow-left {
+}
+.q-sel-func>button.q-choice-func{
+	color: #555;
+	margin-left: 41%;
+	background-color: #e8ebed;
+	border: 0;
+	border-bottom: solid 1px #d2d4d6;
+	border-radius: 25px;
+	outline-color: #d2d4d6;
+	padding: 2px 10px;
+}
+.q-sel-func>button.q-choice-func:hover {
+	background-color: #f7f7f7;
+}
+.q-sel-func>button.q-cho-sub-func {
+	color: #fff;
+	background-color: #fa3232;
+	border: solid 1px #fa3232;
+	border-radius: 25px;
+	padding: 2px 10px;
+}
+.q-sel-func>button.q-cho-sub-func:hover {
+	opacity: 0.9;
+}
+
+//sec04 내 아이디어 제안하기
+.q-desc {
+	color: #555;
+	font-size: 12px;
+	margin-top: -5px;
+	padding: 0px 14px;
+}
+.q-contents.sec04 {
+	height: 116px;
+	margin-bottom: 5%;
+}
+.q-contents-box>.q-text-box.sec04 {
+	height: 106px;
+}
+
 
 
 

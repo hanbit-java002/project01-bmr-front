@@ -166,7 +166,7 @@ require([
 
 
 		/** 1일이 시작하기 전까지의 이전 요일들을 blank함.**/
-		for(var i=0; i<weekday; ++i) {
+		for(var i=0; i<=weekday; i++) {
 			calHTML += "<td class='blank'> </td>";	<!-- blank (1일 이전의 날짜) -->
 		}
 
@@ -243,6 +243,7 @@ require([
 
 			Calendar.setDate(1);
 
+			today = 1;
 			calendar();	<!-- 함수호출... 다음 달. -->
 			$(".calendar-box>table>tbody>tr>td").html(calHTML);
 			$(".today").css("border", "0");
@@ -274,8 +275,9 @@ require([
 
 	$(".cal-left-arrow").on("click", function() {
 		if(l_count != 1) {
-			Calendar.setMonth(month-1);		<!-- 현재 다음달인 상태이므로 이번달로 회귀하기위해 현재달-1 -->
+			Calendar = new Date();			<!-- 현재 다음달인 상태이므로 이번달로 회귀하기위해 원래대로 현재 date를 받아옴 -->
 			month = Calendar.getMonth();
+			today = Calendar.getDate();
 
 			Calendar.setDate(1);
 

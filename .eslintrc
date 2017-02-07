@@ -26,6 +26,7 @@
 			"ignoreUrls": true,
 			"ignorePattern": ^./goog\.(module|require)/
 		}],
-		"linebreak-style": "off"
+		"linebreak-style": "off",
+		"space-before-function-paren": "off"
 	}
 }
