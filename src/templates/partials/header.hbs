@@ -430,13 +430,14 @@
 				<ul>
 					<li class="menu-sign-in">로그인</li>
 					<li class="menu-sign-up">회원가입</li>
+					<li class="menu-sign-out">로그아웃</li>
 				</ul>
 			</div>
 		</div>
 
 		<div id="menu-bar">
 			<a class="menu-items">이벤트 </a>
-			<a class="menu-items">추천 테마</a>
+			<a class="menu-items rc-theme" onclick="goRecommendTheme()">추천 테마</a>
 			<a class="menu-items">리뷰</a>
 			<a class="menu-items">매거진</a>
 		</div>
@@ -469,12 +470,12 @@
 				<section class="sec02-email">
 					<div class="write-in signin">
 						이메일<br>
-						<input class="input-email" type="text">
+						<input id="member-email" class="input-email" type="text">
 					</div>
 
 					<div class="write-in signin">
 						비밀번호<br>
-						<input class="input-password" type="password">
+						<input id="member-pw" class="input-password" type="password">
 					</div>
 
 					<button class="login-btn">로그인</button><br>
@@ -518,11 +519,11 @@
 					<ul class="write-in">
 						<li>
 							이름<br>
-							<input class="input-name" type="text">
+							<input id="user-name" class="input-name" type="text">
 						</li>
 						<li>
 							이메일<br>
-							<input class="input-email" type="email">
+							<input id="user-email" class="input-email" type="email">
 							<button class="repetition-confirm">중복확인</button>
 						</li>
 					</ul>
@@ -535,19 +536,19 @@
 						</li>
 						<li>
 							비밀번호<br>
-							<input class="input-password" type="password">
+							<input id="user-pw" class="input-password" type="password">
 						</li>
 					</ul>
 					<ul class="write-in">
 						<li class="birth-date">
 							생년월일<br>
-							<input class="input-year" type="text" maxlength="4">년
-							<input class="input-month" type="text" maxlength="2">월
-							<input class="input-day" type="text" maxlength="2">일
+							<input id="user-birth-y" class="input-year" type="text" maxlength="4">년
+							<input id="user-birth-m" class="input-month" type="text" maxlength="2">월
+							<input id="user-birth-d" class="input-day" type="text" maxlength="2">일
 						</li>
 						<li>
 							비밀번호 확인<br>
-							<input class="input-password-cfm" type="password">
+							<input id="user-pw-cfm" class="input-password-cfm" type="password">
 						</li>
 					</ul>
 
@@ -665,6 +666,12 @@
 
 
 	<script>
+		//추천테마 클릭 시
+		function goRecommendTheme() {
+			location.href = "recommend_theme.html";
+		}
+
+
 		//로그인/회원가입 팝업창에서 이전으로 클릭 시 함수 정의
 		function goSignInChoice() {
 			$(".sec01-choice").show();

@@ -228,7 +228,8 @@ require([
 
 	function getBannerImgs() {
 		$.ajax({
-			url: "/api/banner/imgs",
+			url: "/api2/banner/imgs",	//스프링
+			//url: "/api/banner/imgs",	//이클립스
 			success: function(imgList) {
 				bannerImgList = imgList;
 

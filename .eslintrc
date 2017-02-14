@@ -27,6 +27,8 @@
 			"ignorePattern": ^./goog\.(module|require)/
 		}],
 		"linebreak-style": "off",
-		"space-before-function-paren": "off"
+		"space-before-function-paren": "off",
+		"spaced-comment": "off",
+		"comma-dangle": "off"
 	}
 }

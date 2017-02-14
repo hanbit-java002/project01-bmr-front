@@ -196,14 +196,52 @@ define([
 	}
 
 
+	var ch_count;
 	$(".select-multiple>label").on("click", function (event) {
 		event.stopPropagation();
+		var fd_count = $(this).closest("ul").find("input:checked").length;
 
+		if(fd_count === 0) {
+			$("#foods-choice>#choice-text").text("음식 종류 선택");
+		}
+		else {
+			if(fd_count >=1) {
+				if($("#foods-choice>#choice-text").text().length >4) {
+					if(fd_count == 2) {
+						ch_count = fd_count -1;
+						if(ch_count == 1) {
+							$(".food-etc").text("");
+						}
+						else {
+							$(".food-etc").text("외 "+ ch_count +"개");
+						}
+					}
+					else if(fd_count >= 3) {
+						ch_count = fd_count-2;
+						$(".food-etc").text("외 "+ ch_count +"개");
+					}
+					else if(fd_count == 1) {
+						$("#foods-choice>#choice-text").text($(this).closest("ul").find("input:checked").next().text());
+					}
+				}
+				else {
+					$("#foods-choice>#choice-text").append("," + $(this).children("li").children("p").text());
+					$("#foods-choice>#choice-text").append("<span class='food-etc'></span>");
+				}
+			}
+		}
+
+		<!-- 체크박스 체크 되면 -->
 		if ($(this).children("li").children("input").is(":checked")) {
 			$(this).css("background-color", " #f9dee3");
 			$(this).children("li").children("p").css("color", "#c91b3c");
 			$(this).children("li").children("i").css("background-position", "left bottom");
+
+			if(fd_count === 1) {
+				$("#foods-choice>#choice-text").text($(this).children("li").children("p").text());
+			}
 		}
+		<!-- 체크박스 체크 해제 되면 -->
 		else {
 			$(this).css("background-color", " #fff");
 			$(this).children("li").children("p").css("color", "#969696");
@@ -283,14 +321,21 @@ define([
 		$("body").css("overflow", "hidden");
 		$(".sign-in-up-box").css("z-index", "31");
 	});
-	<!-- 로그인/회원가입 팝업창 닫기 -->
-	$(".clicked-filter-layer, .sign-in-up-box>.fa-times").on("click", function () {
+
+
+	<!-- 로그인/회원가입 팝업창 닫기 함수 -->
+	function closeSignInUpBox() {
 		$(".sign-in-up-box").hide();
 
 		$(".clicked-filter-layer").hide();
 		$("body").css("overflow", "");
 		$(".sign-in-up-box").css("z-index", "");
+	}
+
+	$(".clicked-filter-layer, .sign-in-up-box>.fa-times").on("click", function () {
+		closeSignInUpBox();
 	});
+
 
 	<!-- 회원가입 입력창에서 성별 클릭 시(둘 중 하나만 클릭되도록)-->
 	$(".choice-gender.male").on("click", function() {
@@ -302,7 +347,197 @@ define([
 		$(".choice-gender.male").removeClass("clicked");
 	});
 
-	goSearchHtml();
+
+	function signUp() {
+		var userEmail = $("#user-email").val();
+		var userPw = $("#user-pw").val();
+		var userPwCfm = $("#user-pw-cfm").val();
+		var userName = $("#user-name").val();
+		var userGender;
+		var userBirthY = $("#user-birth-y").val();
+		var userBirthM = $("#user-birth-m").val();
+		var userBirthD = $("#user-birth-d").val();
+
+		if(userEmail === undefined || userEmail === "") {
+			alert("이메일을 입력하세요.");
+			$("#user-email").focus();
+			return;
+		}
+		else if(userPw === undefined || userPw === "") {
+			alert("비밀번호를 입력하세요.");
+			$("#user-pw").focus();
+			return;
+		}
+		else if(userPw !== userPwCfm) {
+			alert("비밀번호 확인을 동일하게 입력하세요.");
+			$("#user-pw-cfm").focus();
+			return;
+		}
+		else if(userName === undefined || userName === "") {
+			alert("이름을 입력하세요.");
+			$("#user-name").focus();
+			return;
+		}
+		else if(!$(".choice-gender.male").hasClass("clicked") && !$(".choice-gender.female").hasClass("clicked")) {
+			alert("성별을 선택하세요.");
+			return;
+		}
+		else if(userBirthY === undefined || userBirthY === "") {
+			alert("생년월일을 입력하세요.");
+			$("#user-birth-y").focus();
+			return;
+		}
+		else if(userBirthM === undefined || userBirthM === "") {
+			alert("생년월일을 입력하세요.");
+			$("#user-birth-m").focus();
+			return;
+		}
+		else if(userBirthD === undefined || userBirthD === "") {
+			alert("생년월일을 입력하세요.");
+			$("#user-birth-d").focus();
+			return;
+		}
+
+		if($(".choice-gender.male").hasClass("clicked")) {
+			userGender = "남자";
+		}
+		else if($(".choice-gender.female").hasClass("clicked")) {
+			userGender = "여자";
+		}
+
+		$.ajax({
+			url: "/api2/member/signup",		//스프링(sts)에서 리퀘스트매핑으로 지정한 url
+			method: "POST",
+			data: {
+				userEmail: $("#user-email").val(),
+				userPw: $("#user-pw").val(),
+				userName: $("#user-name").val(),
+				userGender: userGender,
+				userBirth: $("#user-birth-y").val() + "" +$("#user-birth-m").val() + "" + $("#user-birth-d").val(),
+			},
+			success: function(data) {
+				if(data.result === "ok") {
+					alert(userName + "님 환영합니다.");
+					closeSignInUpBox();
+
+					$(".menu-sign-in").hide();
+					$(".menu-sign-up").hide();
+					$(".menu-sign-out").show();
+
+					//회원가입 되면 즉시 방금 가입한 정보로 로그인 상태가 되도록..
+					$.ajax({
+						url: "/api2/member/signin",
+						method: "POST",
+						data: {
+							userEmail: userEmail,
+							userPw: userPw
+						},
+						success: function(data) {
+							if(data.result === "ok") {
+								return;
+							}
+						}
+					});
+				}
+				else {
+					alert("정상적으로 가입되지 않았습니다.");
+				}
+			},
+			error: function(jqXHR) {
+				alert(jqXHR.responseJson.message);
+			}
+		});
+	}
+
+
+	function signIn() {
+		var memberEmail = $("#member-email").val();
+		var memberPw = $("#member-pw").val();
+
+		if(memberEmail === undefined || memberEmail === "") {
+			alert("이메일을 입력하세요");
+			$("#member-email").focus();
+			return;
+		}
+		else if(memberPw === undefined || memberPw === "") {
+			alert("비밀번호를 입력하세요");
+			$("#member-pw").focus();
+			return;
+		}
+
+		$.ajax({
+			url: "/api2/member/signin",
+			method: "POST",
+			data: {
+				userEmail: memberEmail,
+				userPw: memberPw
+			},
+			success: function(data) {
+				if(data.result === "ok") {
+					alert( memberEmail + "계정으로 로그인되었습니다.");
+
+					$(".menu-sign-in").hide();
+					$(".menu-sign-up").hide();
+					$(".menu-sign-out").show();
+
+					closeSignInUpBox();
+				}
+				else {
+					alert("정상적으로 로그인되지 않았습니다.");
+				}
+			},
+			error: function(jqXHR) {
+				alert(jqXHR.responseJSON.message);
+			}
+		});
+	}
+
+	<!-- 로그인이 상태인지 아닌지 확인하여 로그아웃버튼 보이기/숨기기 하는 함수-->
+	function checkSignedIn() {
+		$.ajax({
+			url: "/api2/member/signedin",
+			success: function(data) {
+				if(data.result === "yes") {
+					$(".menu-sign-in").hide();
+					$(".menu-sign-up").hide();
+					$(".menu-sign-out").show();
+				}
+				else {
+					$(".menu-sign-in").show();
+					$(".menu-sign-up").show();
+					$(".menu-sign-out").hide();
+				}
+			}
+		});
+	}
+
+
+	<!-- 가입창의 회원가입 버튼 클릭 시 -->
+	$(".sign-up-btn").on("click", function() {
+		signUp();
+	});
+	<!-- 로그인창의 로그인 버튼 클릭 시 -->
+	$(".login-btn").on("click", function() {
+		signIn();
+	});
+	<!-- 로그아웃 버튼 클릭 시 -->
+	$(".menu-sign-out").on("click", function() {
+		$.ajax({
+			url: "/api2/member/signedin",
+			success: function() {
+				$(".menu-sign-in").show();
+				$(".menu-sign-up").show();
+				$(".menu-sign-out").hide();
+			}
+		});
+
+		//signout 실행함으로써 세션에 들어간 정보 삭제되도록(=로그인유지 끊김)
+		$.ajax({
+			url: "/api2/member/signout",
+			success: function() {
+			}
+		});
+	});
 
 
 	<!-- 동그라미물음표 버튼 클릭 시 -->
@@ -321,6 +556,13 @@ define([
 			$("section.sec04-idea").css("left", "-100%");
 		}
 	});
+
+
+	/**
+	 * 실행
+	 * 		**/
+	goSearchHtml();
+	checkSignedIn();
 
 	return {
 		showRegionFilter: showRegionFilter,

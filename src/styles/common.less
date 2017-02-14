@@ -69,9 +69,9 @@ ul {
 	cursor: pointer;
 }
 #main-menu {
-	position: relative;
-	width: 20%;
-	top: -92px;
+	position: absolute;
+	width: 11%;
+	top: 20px;
 	left: 73%;
 	font-size: 12px;
 	cursor: pointer;
@@ -85,8 +85,12 @@ ul {
 	border-right: solid 1px #fff;
 	vertical-align: middle;
 }
-#main-menu>ul>li:last-child {
+#main-menu>ul>li.menu-sign-up,
+#main-menu>ul>li.menu-sign-out{
 	border-right: 0;
+}
+#main-menu>ul>li.menu-sign-out {
+	display: none;
 }
 
 
