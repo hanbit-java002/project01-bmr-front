@@ -82,16 +82,198 @@ ul {
 	color: #fff;
 	padding-left: 10px;
 	padding-right: 10px;
-	border-right: solid 1px #fff;
 	vertical-align: middle;
 }
-#main-menu>ul>li.menu-sign-up,
-#main-menu>ul>li.menu-sign-out{
-	border-right: 0;
+#main-menu>ul>li.menu-sign-in {
+	border-right: solid 1px #fff;
 }
-#main-menu>ul>li.menu-sign-out {
+
+#main-menu>ul>.menu-icons {
 	display: none;
 }
+#main-menu>ul>.menu-icons>li {
+	position: absolute;
+	width: 37px;
+	height: 37px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	margin-top: -8px;
+}
+.menu-icons>li.menu-cart {
+	background-image: url("../img/icon.cart.png");
+	margin-left: -17px;
+}
+
+.menu-icons>li.menu-notice {
+	background-image: url("../img/icon.notice.png");
+	margin-left: 31px;
+}
+.menu-notice>.notice-box-size {
+	display: none;
+	position: absolute;
+	top: 38px;
+	left: -135px;
+	z-index: 6;
+}
+.menu-notice>.notice-box-size>ul.notice-box {
+	width: 322px;
+	max-height: 138px;
+	margin-top: 7px;
+	background-color: #fff;
+	border: solid 1px #b4b4b4;
+	border-radius: 3px;
+}
+.menu-notice>.notice-box-size>ul.notice-box>li {
+	padding: 7px 25px;
+	color: @domain-text-color;
+}
+ul.notice-box>li:nth-child(1) {
+	margin-top: 3px;
+}
+ul.notice-box>li:nth-child(1)>span {
+	font-size: 13px;
+	font-weight: bold;
+}
+ul.notice-box>li:nth-child(1)>span.n-title {
+	float: left;
+	margin-right: 130px;
+	cursor: default;
+}
+ul.notice-box>li:nth-child(1)>span.selected {
+	color: @main-color;
+}
+ul.notice-box>li:nth-child(1)>span.n-my {
+	margin-right: 10px;
+}
+ul.notice-box>li:nth-child(1)>span.n-my:hover,
+ul.notice-box>li:nth-child(1)>span.n-poing:hover {
+	color: @main-color;
+}
+ul.notice-box>li:nth-child(2) {
+	position: relative;
+	width: 90%;
+	height: 54px;
+	margin-left: 13px;
+	border-top: solid 1px #e3e3e3;
+	border-bottom: solid 1px #e3e3e3;
+	cursor: default;
+}
+ul.notice-box>li:nth-child(2)>.notice-img {
+	width: 37px;
+	height: 37px;
+	margin-left: -15px;
+	background-image: url("../img/user0.png");
+	background-size: cover;
+}
+ul.notice-box>li:nth-child(2)>span.n-context {
+	position: relative;
+	display: block;
+	top: -26px;
+	left: 30px;
+}
+ul.notice-box>li:nth-child(2)>span.n-period {
+	display: none;
+	position: relative;
+	font-size: 10px;
+	font-weight: bold;
+	top: -37px;
+	right: -30px;
+	color: #969696;
+}
+ul.notice-box>li:nth-child(3) {
+	height: 31px;
+	font-size: 13px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 1;
+}
+ul.notice-box>li:nth-child(3):hover {
+	color: @main-color;
+}
+
+
+.menu-icons>li.menu-my {
+	background-image: url("../img/user0.png");
+	margin-left: 78px;
+}
+.menu-icons>li.menu-my:hover {
+	background-image: url("../img/user0.hover.png");
+}
+.menu-my>.my-box-size {
+	display: none;
+	position: absolute;
+	width: 102px;
+	top: 30px;
+	left: -27px;
+	z-index: 6;
+}
+.menu-my>.my-box-size>ul.my-box {
+	margin-top: 15px;
+	background-color: #fff;
+	border: solid 1px #b4b4b4;
+	border-radius: 3px;
+
+}
+.menu-my>.my-box-size>ul.my-box>li {
+	height: 18px;
+	color: @domain-text-color;
+	border-bottom: solid 1px #e3e3e3;
+	font-size: 13px;
+	line-height: 2px;
+	text-align: center;
+	padding: 17px 6px;
+	cursor: pointer;
+}
+.menu-my>.my-box-size>ul.my-box>li:hover {
+	background-color: #e3e3e3;
+}
+
+//로그아웃 창
+#sign-out-box {
+	display: none;
+	position: fixed;
+	width: 100%;
+	top: 45%;
+	left: 2%;
+	z-index: 6;
+}
+#sign-out-box>div {
+	display: block;
+	width: 15.6%;
+	min-width: 193px;
+	margin-left: 40%;
+}
+#sign-out-box>div>button {
+	color: #fff;
+	background: rgba(0,0,0, 0.7);
+	outline: none;
+	margin-bottom: 2px;
+	border: solid 1px rgba(0,0,0, 0.1);
+	border-radius: 4px;
+	font-size: 13px;
+}
+#sign-out-box>div.q-sign-out {
+}
+#sign-out-box>div.q-sign-out>button {
+	width: 100%;
+	height: 53px;
+	cursor: default;
+}
+#sign-out-box>div.sel-sign-out {
+	display: inline-block;
+}
+#sign-out-box>div.sel-sign-out>button {
+	width: 49%;
+	height: 29px;
+	margin-left: 1px;
+	margin-right: -2px;
+}
+#sign-out-box>div.sel-sign-out>button:hover {
+	background-color: #696969;
+	border: solid 1px #696969;
+	opacity: 0.7;
+}
+
 
 
 #main-region {

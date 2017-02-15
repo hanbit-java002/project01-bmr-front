@@ -28,7 +28,28 @@
 			<ul>
 				<li class="menu-sign-in">로그인</li>
 				<li class="menu-sign-up">회원가입</li>
+				<li class="menu-my" onmouseover="showMyList()" onmouseout="hideMyList()">
+					<div class="my-box-size">
+						<ul class="my-box" onmouseover="showMyList()">
+							<li>예약</li>
+							<li>티켓</li>
+							<li>결제</li>
+							<li>친구찾기</li>
+							<li>설정</li>
+							<li onclick="showSignOutBox()">로그아웃</li>
+						</ul>
+					</div>
+				</li>
 			</ul>
+		</div>
+		<div id="sign-out-box">
+			<div class="q-sign-out">
+				<button>정말로 로그아웃 하실건가요?:( </button>
+			</div>
+			<div class="sel-sign-out">
+				<button onclick="hideSignOutBox()">아니오</button>
+				<button onclick="hideSignOutBox()" class="menu-sign-out">예</button>
+			</div>
 		</div>
 	</header>
 
@@ -58,12 +79,12 @@
 				<section class="sec02-email">
 					<div class="write-in signin">
 						이메일<br>
-						<input class="input-email" type="text">
+						<input id="member-email" class="input-email" type="text">
 					</div>
 
 					<div class="write-in signin">
 						비밀번호<br>
-						<input class="input-password" type="password">
+						<input id="member-pw" class="input-password" type="password">
 					</div>
 
 					<button class="login-btn">로그인</button><br>
@@ -404,6 +425,26 @@
 			$(".sec02-email").show();
 			$(".sec03-setup-password").hide();
 		}
+
+		//로그인 후 메뉴바에 생긴 사람아이콘에 마우스오버 시 마이메뉴 보이고, 마우스아웃시 숨기기
+		function showMyList() {
+			$(".my-box-size").show();
+		}
+		function hideMyList() {
+			$(".my-box-size").hide();
+		}
+
+
+		//로그인 후 메뉴바에 생긴 사람아이콘 리스트에 있는 로그아웃 클릭 시 보이기,숨기기
+		function showSignOutBox() {
+			$("#sign-out-box").show();
+			$("body").css("overflow", "hidden");
+		}
+		function hideSignOutBox() {
+			$("#sign-out-box").hide();
+			$("body").css("overflow", "");
+		}
+
 
 
 		//물음표 버튼

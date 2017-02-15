@@ -18,7 +18,7 @@
 </head>
 <body>
 
-<div class="po-container">
+<div class="po-container" onclick="hideNoticeBox(event)">
 	<header id="main-bar">
 		<div class="main-bar-contents">
 			<div class="clicked-filter-layer"> </div>
@@ -430,8 +430,51 @@
 				<ul>
 					<li class="menu-sign-in">로그인</li>
 					<li class="menu-sign-up">회원가입</li>
-					<li class="menu-sign-out">로그아웃</li>
+
+					<div class="menu-icons">
+						<li class="menu-cart"></li>
+						<li class="menu-notice" onclick="showNoticeBox(event)">
+							<div class="notice-box-size">
+								<ul class="notice-box">
+									<li>
+										<span class="n-title">소식</span>
+										<span class="n-my selected" onclick="noticeMy()">내 소식</span>
+										<span class="n-poing" onclick="noticePoing()">포잉 알림</span>
+									</li>
+									<li>
+										<div class="notice-img"></div>
+										<span class="n-context">내 소식이 없습니다</span>
+										<span class='n-period'>한달 전</span>
+									</li>
+									<li>
+										모든 소식보기
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="menu-my" onmouseover="showMyList()" onmouseout="hideMyList()">
+							<div class="my-box-size">
+								<ul class="my-box" onmouseover="showMyList()">
+									<li>예약</li>
+									<li>티켓</li>
+									<li>결제</li>
+									<li>친구찾기</li>
+									<li>설정</li>
+									<li onclick="showSignOutBox()">로그아웃</li>
+								</ul>
+							</div>
+						</li>
+					</div>
 				</ul>
+			</div>
+		</div>
+		<div id="sign-out-box">
+			<div class="q-sign-out">
+				<button>정말로 로그아웃 하실건가요?:( </button>
+			</div>
+			<div class="sel-sign-out">
+				<button onclick="hideSignOutBox()">아니오</button>
+				<button onclick="hideSignOutBox()" class="menu-sign-out">예</button>
 			</div>
 		</div>
 
@@ -695,6 +738,85 @@
 			$(".sec02-email").show();
 			$(".sec03-setup-password").hide();
 		}
+
+
+		//로그인 후 메뉴바에 생긴 사람아이콘에 마우스오버 시 마이메뉴 보이고, 마우스아웃시 숨기기
+		function showMyList() {
+		    $(".notice-box-size").hide();
+			$(".my-box-size").show();
+		}
+		function hideMyList() {
+			$(".my-box-size").hide();
+		}
+
+		//로그인 후 메뉴바에 생긴 알림아이콘 클릭 시 알림창 보이고, 화면 또는 아이콘토글 시 숨기기
+		function showNoticeBox(event) {
+		    if( $(".menu-notice").click) {
+				event.stopPropagation();
+				$(".notice-box-size").toggle();
+			}
+			$(".notice-box-size").on("click", function(e) {
+				e.stopPropagation();
+				$(".notice-box-size").show();
+			});
+		}
+		function hideNoticeBox() {
+			$(".notice-box-size").hide();
+		}
+		//알림창의 내 소식
+		function noticeMy() {
+			$("span.n-my").addClass("selected");
+			$("span.n-poing").removeClass("selected");
+
+			$("ul.notice-box>li:nth-child(2)").css("height", "54px");
+			$("ul.notice-box>li:nth-child(2)").css("cursor", "default");
+			$("ul.notice-box>li:nth-child(2)").on("mouseover", function() {
+				$("ul.notice-box>li:nth-child(2)").css("background-color", "#fff");
+			});
+			$("span.n-context").css("top", "-26px");
+			$("span.n-context").css("left", "30px");
+			$("span.n-context").css("font-weight", "100");
+
+			$(".notice-img ").css("background-image", "url('../img/user0.png')");
+			$("span.n-context").text("내 소식이 없습니다.");
+			$(".n-period").hide();
+		}
+		//알림창의 포잉 알림
+		function noticePoing() {
+			$("span.n-my").removeClass("selected");
+			$("span.n-poing").addClass("selected");
+
+
+			$("ul.notice-box>li:nth-child(2)").css("height", "68px");
+			$("ul.notice-box>li:nth-child(2)").on("mouseover", function() {
+				$("ul.notice-box>li:nth-child(2)").css("background-color", "#e3e3e3");
+			});
+			$("ul.notice-box>li:nth-child(2)").on("mouseout", function() {
+				$("ul.notice-box>li:nth-child(2)").css("background-color", "#fff");
+			});
+			$("ul.notice-box>li:nth-child(2)").css("cursor", "pointer");
+			$("span.n-context").css("width", "89%");
+			$("span.n-context").css("top", "-39px");
+			$("span.n-context").css("font-weight", "bold");
+			$("span.n-context").css("text-align", "justify");
+
+			$(".notice-img ").css("background-image", "url('../img/icon.poing.png')");
+			$("span.n-context").text("포잉에 오신 것을 환영합니다!" +
+				"가입 축하 포인트 3,000P가 적립 되었습니다.");
+			$(".n-period").show();
+		}
+
+
+		//로그인 후 메뉴바에 생긴 사람아이콘 리스트에 있는 로그아웃 클릭 시 보이기,숨기기
+		function showSignOutBox() {
+			$("#sign-out-box").show();
+			$("body").css("overflow", "hidden");
+		}
+		function hideSignOutBox() {
+			$("#sign-out-box").hide();
+			$("body").css("overflow", "");
+		}
+
 
 
 		//문의 박스의 텍스트에 포커스될 때 색깔(빨강)과 포커스아웃될 때 색깔(회색) 함수 정의

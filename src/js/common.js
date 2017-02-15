@@ -422,7 +422,9 @@ define([
 
 					$(".menu-sign-in").hide();
 					$(".menu-sign-up").hide();
-					$(".menu-sign-out").show();
+
+					$(".menu-icons").show();
+					$(".menu-my").show();
 
 					//회원가입 되면 즉시 방금 가입한 정보로 로그인 상태가 되도록..
 					$.ajax({
@@ -478,7 +480,9 @@ define([
 
 					$(".menu-sign-in").hide();
 					$(".menu-sign-up").hide();
-					$(".menu-sign-out").show();
+
+					$(".menu-icons").show();
+					$(".menu-my").show();
 
 					closeSignInUpBox();
 				}
@@ -500,12 +504,16 @@ define([
 				if(data.result === "yes") {
 					$(".menu-sign-in").hide();
 					$(".menu-sign-up").hide();
-					$(".menu-sign-out").show();
+
+					$(".menu-icons").show();
+					$(".menu-my").show();
 				}
 				else {
 					$(".menu-sign-in").show();
 					$(".menu-sign-up").show();
-					$(".menu-sign-out").hide();
+
+					$(".menu-icons").hide();
+					$(".menu-my").hide();
 				}
 			}
 		});
@@ -520,14 +528,16 @@ define([
 	$(".login-btn").on("click", function() {
 		signIn();
 	});
-	<!-- 로그아웃 버튼 클릭 시 -->
+	<!-- 로그아웃 클릭 시 -->
 	$(".menu-sign-out").on("click", function() {
 		$.ajax({
 			url: "/api2/member/signedin",
 			success: function() {
 				$(".menu-sign-in").show();
 				$(".menu-sign-up").show();
-				$(".menu-sign-out").hide();
+
+				$(".menu-icons").hide();
+				$(".menu-my").hide();
 			}
 		});
 
@@ -535,6 +545,7 @@ define([
 		$.ajax({
 			url: "/api2/member/signout",
 			success: function() {
+				location.href = "/";
 			}
 		});
 	});
